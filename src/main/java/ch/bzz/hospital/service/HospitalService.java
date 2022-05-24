@@ -1,7 +1,8 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
-import ch.bzz.hospital.model.Client;
+import ch.bzz.hospital.model.Equipment;
+import ch.bzz.hospital.model.Hospital;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,16 +12,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("client")
-public class ClientService {
+@Path("hospital")
+public class HospitalService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listClients() {
-        List<Client> clientList = DataHandler.getInstance().readAllClients();
+    public Response listHospital() {
+        List<Hospital> hospitalList = DataHandler.getInstance().readAllHospitals();
         Response response = Response
                 .status(200)
-                .entity(clientList)
+                .entity(hospitalList)
                 .build();
         return response;
     }
@@ -28,11 +29,11 @@ public class ClientService {
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBook(@QueryParam("forename") String forename, @QueryParam("name") String name) {
-        Client client = DataHandler.getInstance().readClientByName(forename, name);
+    public Response readEquipment(@QueryParam("name") String name) {
+        Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response = Response
                 .status(200)
-                .entity(client)
+                .entity(equipment)
                 .build();
         return response;
     }

@@ -16,7 +16,7 @@ public class EquipmentService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBooks() {
+    public Response listEquipment() {
         List<Equipment> equipmentList = DataHandler.getInstance().readAllEquipment();
         Response response = Response
                 .status(200)
@@ -28,11 +28,11 @@ public class EquipmentService {
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBook(@QueryParam("name") String name) {
-        Equipment book = DataHandler.getInstance().readEquipmentByName(name);
+    public Response readEquipment(@QueryParam("name") String name) {
+        Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response = Response
                 .status(200)
-                .entity(book)
+                .entity(equipment)
                 .build();
         return response;
     }

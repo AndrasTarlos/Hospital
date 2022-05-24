@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Hospital {
     private List<Client> clients;
-    private List<Equipment> equipmments;
+    private List<Equipment> equipments;
     private String name;
     private String address;
     private String owner;
@@ -39,11 +39,11 @@ public class Hospital {
     }
 
     public List<Equipment> getEquipmments() {
-        return equipmments;
+        return equipments;
     }
 
     public void setEquipmments(List<Equipment> equipmments) {
-        this.equipmments = equipmments;
+        this.equipments = equipments;
     }
 
     public String getName() {

@@ -2,6 +2,7 @@ package ch.bzz.hospital.data;
 
 import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
+import ch.bzz.hospital.model.Hospital;
 import ch.bzz.hospital.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,15 +19,18 @@ public class DataHandler {
     private static DataHandler instance = null;
     private List<Equipment> equipmentList;
     private List<Client> clientList;
+    private List<Hospital> hospitalList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setPublisherList(new ArrayList<>());
+        setClientList(new ArrayList<>());
         readClientJSON();
-        setBookList(new ArrayList<>());
+        setEquipmentList(new ArrayList<>());
         readEquipmentJSON();
+        setHospitalList(new ArrayList<>());
+        readHospitalJSON();
     }
 
     /**
@@ -68,8 +72,11 @@ public class DataHandler {
      * @return list of publishers
      */
     public List<Client> readAllClients() {
-
         return getClientList();
+    }
+
+    public List<Hospital> readAllHospitals() {
+        return getHospitalList();
     }
 
     /**
@@ -111,12 +118,26 @@ public class DataHandler {
      */
     private void readClientJSON() {
         try {
-            String path = Config.getProperty("clientJSON");
+            String path = Config.getProperty("clientsJSON");
             byte[] jsonData = Files.readAllBytes(Paths.get(path));
             ObjectMapper objectMapper = new ObjectMapper();
             Client[] clients = objectMapper.readValue(jsonData,Client[].class);
             for (Client client : clients) {
                 getClientList().add(client);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void readHospitalJSON() {
+        try {
+            String path = Config.getProperty("hospitalJSON");
+            byte[] jsonData = Files.readAllBytes(Paths.get(path));
+            ObjectMapper objectMapper = new ObjectMapper();
+            Hospital[] hospitals = objectMapper.readValue(jsonData,Hospital[].class);
+            for (Hospital h : hospitals) {
+                getHospitalList().add(h);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -131,15 +152,22 @@ public class DataHandler {
         return equipmentList;
     }
 
+    private List<Hospital> getHospitalList() {
+        return hospitalList;
+    }
+
     /**
      * sets bookList
      *
      * @param equipmentList the value to set
      */
-    private void setBookList(List<Equipment> equipmentList) {
+    private void setEquipmentList(List<Equipment> equipmentList) {
         this.equipmentList = equipmentList;
     }
 
+    private void setHospitalList(List<Hospital> hospitalList) {
+        this.hospitalList = hospitalList;
+    }
     /**
      * gets publisherList
      *
@@ -154,7 +182,7 @@ public class DataHandler {
      *
      * @param clientList the value to set
      */
-    private void setPublisherList(List<Client> clientList) {
+    private void setClientList(List<Client> clientList) {
         this.clientList = clientList;
     }
 
