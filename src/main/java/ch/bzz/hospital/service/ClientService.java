@@ -11,8 +11,22 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * <h1>ClientService</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
+ * Webservice for the clients information
+ */
+
 @Path("client")
 public class ClientService {
+    /**
+     * list all known clients
+     * @return all clients
+     */
     @Path("listAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +39,12 @@ public class ClientService {
         return response;
     }
 
+    /**
+     * search for a client
+     * @param forename of the searched client
+     * @param name of the searched client
+     * @return the found Client by the given params
+     */
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +57,10 @@ public class ClientService {
         return response;
     }
 
+    /**
+     * sort the clients by their names
+     * @return the sorted list
+     */
     @Path("sortByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

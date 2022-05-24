@@ -11,8 +11,22 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * <h1>EquipmentService</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
+ * Webservice for the equipment information
+ */
+
 @Path("equipment")
 public class EquipmentService {
+    /**
+     * returns all the known equipments
+     * @return all equipments
+     */
     @Path("listAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +39,11 @@ public class EquipmentService {
         return response;
     }
 
+    /**
+     * searches for equipment with the searched name
+     * @param name of the equipment
+     * @return the found equipment by the given param
+     */
     @Path("readByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +56,10 @@ public class EquipmentService {
         return response;
     }
 
+    /**
+     * returns the sorted list of equipment
+     * @return sorted list
+     */
     @Path("sortByAmount")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

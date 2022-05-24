@@ -12,9 +12,23 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * <h1>HospitalService</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
+ * Webservice for the hospital information
+ */
+
 @Path("hospital")
 public class HospitalService {
-    @Path("list")
+    /**
+     * returns all hospitals
+     * @return all known hospitals
+     */
+    @Path("listAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listHospital() {
@@ -26,15 +40,20 @@ public class HospitalService {
         return response;
     }
 
+    /**
+     * searches for a hospital with the searched name
+     * @param name of the hospital
+     * @return matching hospital
+     */
     @Path("readByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(@QueryParam("name") String name) {
         Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response = Response
-                .status(200)
-                .entity(equipment)
-                .build();
-        return response;
+                    .status(200)
+                    .entity(equipment)
+                    .build();
+            return response;
     }
 }

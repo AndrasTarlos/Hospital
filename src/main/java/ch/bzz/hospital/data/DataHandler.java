@@ -14,6 +14,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * <h1>DataHandler</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
  * reads and writes the data in the JSON-files
  */
 public class DataHandler {
@@ -46,15 +52,15 @@ public class DataHandler {
 
 
     /**
-     * reads all books
-     * @return list of books
+     * reads all Equipment
+     * @return list of Equipment
      */
     public List<Equipment> readAllEquipment() {
         return getEquipmentList();
     }
 
     /**
-     * reads a book by its uuid
+     * reads a Equipment by its name
      * @param equipmentName
      * @return the Equipment (null=not found)
      */
@@ -67,13 +73,19 @@ public class DataHandler {
         }
         return equipment;
     }
-
+    /**
+     * sorts the Equipment by its amount
+     * @return the sorted Equipment list
+     */
     public List<Equipment> readSortedEquipment() {
         List<Equipment> eL = getEquipmentList();
         Collections.sort(eL);
         return eL;
     }
-
+    /**
+     * sorts the Clients by their names
+     * @return the sorted list of Clients
+     */
     public List<Client> readSortedClient() {
         List<Client> cL = getClientList();
         Collections.sort(cL);
@@ -81,21 +93,25 @@ public class DataHandler {
     }
 
     /**
-     * reads all Publishers
-     * @return list of publishers
+     * reads all Client
+     * @return list of Clients
      */
     public List<Client> readAllClients() {
         return getClientList();
     }
 
+    /**
+     * reads all Hospitals
+     * @return list of Hospitals
+     */
     public List<Hospital> readAllHospitals() {
         return getHospitalList();
     }
 
     /**
-     * reads a publisher by its uuid
+     * reads a Client by his/hers name
      * @param forename, name
-     * @return the Publisher (null=not found)
+     * @return the Client (null=not found)
      */
     public Client readClientByName(String forename, String name) {
         Client publisher = null;
@@ -108,7 +124,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the books from the JSON-file
+     * reads the Equipment from the JSON-file
      */
     private void readEquipmentJSON() {
         try {
@@ -127,7 +143,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * reads the Clients from the JSON-file
      */
     private void readClientJSON() {
         try {
@@ -142,7 +158,9 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
-
+    /**
+     * reads the Hospitals from the JSON-file
+     */
     private void readHospitalJSON() {
         try {
             String path = Config.getProperty("hospitalJSON");
@@ -157,39 +175,45 @@ public class DataHandler {
         }
     }
     /**
-     * gets bookList
+     * gets equipmentList
      *
-     * @return value of bookList
+     * @return value of equipment
      */
     private List<Equipment> getEquipmentList() {
         return equipmentList;
     }
-
+    /**
+     * gets hospitalList
+     *
+     * @return value of Hospital
+     */
     private List<Hospital> getHospitalList() {
         return hospitalList;
     }
-
     /**
-     * sets bookList
+     * gets clientList
+     *
+     * @return value of clientList
+     */
+    private List<Client> getClientList() {
+        return clientList;
+    }
+    /**
+     * sets equipmentList
      *
      * @param equipmentList the value to set
      */
     private void setEquipmentList(List<Equipment> equipmentList) {
         this.equipmentList = equipmentList;
     }
-
+    /**
+     * sets hospitalList
+     *
+     * @param hospitalList the value to set
+     */
     private void setHospitalList(List<Hospital> hospitalList) {
         this.hospitalList = hospitalList;
     }
-    /**
-     * gets publisherList
-     *
-     * @return value of publisherList
-     */
-    private List<Client> getClientList() {
-        return clientList;
-    }
-
     /**
      * sets clientList
      *
