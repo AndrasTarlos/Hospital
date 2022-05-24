@@ -1,0 +1,128 @@
+{
+	"id": "037eb932-c81f-4ab0-a56e-ff4d6f41731e",
+	"name": "Hospital",
+	"timestamp": "2022-05-24T21:38:29.454Z",
+	"collection_id": "73cc6a96-8830-4867-8265-039dba426f6a",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4f00e68d-b516-48d4-8303-edbccaee8b0e",
+			"name": "0.1 read",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover&forename=Ben",
+			"time": 1782,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1782
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "410e3810-3a2f-4605-b18a-6da0a34b88ef",
+			"name": "0.2 read",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Hump&forename=Amanda",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cdbac1b3-f189-4e34-9099-0c5a09cd11a1",
+			"name": "0.3 read non existing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Donald&forename=Trump",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cdb2d666-07c7-4d98-a3bd-fa672e34cbbf",
+			"name": "0.4 listAll",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/listAll",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9aec6103-2765-4ca9-9ee7-a18f6f5298a0",
+			"name": "0.1 listAll",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/listAll",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				18
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1832,
+	"collection": {
+		"requests": [
+			{
+				"id": "4f00e68d-b516-48d4-8303-edbccaee8b0e",
+				"method": "GET"
+			},
+			{
+				"id": "410e3810-3a2f-4605-b18a-6da0a34b88ef",
+				"method": "GET"
+			},
+			{
+				"id": "cdbac1b3-f189-4e34-9099-0c5a09cd11a1",
+				"method": "GET"
+			},
+			{
+				"id": "cdb2d666-07c7-4d98-a3bd-fa672e34cbbf",
+				"method": "GET"
+			},
+			{
+				"id": "9aec6103-2765-4ca9-9ee7-a18f6f5298a0",
+				"method": "GET"
+			}
+		]
+	}
+}

@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "73cc6a96-8830-4867-8265-039dba426f6a",
+		"name": "Hospital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "0.1 read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover&forename=Ben",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dover"
+								},
+								{
+									"key": "forename",
+									"value": "Ben"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2 read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Hump&forename=Amanda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Hump"
+								},
+								{
+									"key": "forename",
+									"value": "Amanda"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3 read non existing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Donald&forename=Trump",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Donald"
+								},
+								{
+									"key": "forename",
+									"value": "Trump"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4 listAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hospital",
+			"item": [
+				{
+					"name": "0.1 listAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment",
+			"item": []
+		}
+	]
+}
