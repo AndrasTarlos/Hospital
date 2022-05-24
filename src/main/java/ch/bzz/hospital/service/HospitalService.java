@@ -26,7 +26,7 @@ public class HospitalService {
         return response;
     }
 
-    @Path("read")
+    @Path("readByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(@QueryParam("name") String name) {

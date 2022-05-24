@@ -1,6 +1,8 @@
 package ch.bzz.hospital.model;
 
-public class Equipment {
+import java.util.Comparator;
+
+public class Equipment implements Comparable<Equipment>{
     private String name;
     private String description;
     private Integer amount;
@@ -56,5 +58,10 @@ public class Equipment {
 
     public void setStorageRoom(String storageRoom) {
         this.storageRoom = storageRoom;
+    }
+
+    @Override
+    public int compareTo(Equipment equipment) {
+        return getAmount().compareTo(equipment.getAmount());
     }
 }

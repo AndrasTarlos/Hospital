@@ -13,7 +13,7 @@ import java.util.List;
 
 @Path("client")
 public class ClientService {
-    @Path("list")
+    @Path("listAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listClients() {
@@ -33,6 +33,18 @@ public class ClientService {
         Response response = Response
                 .status(200)
                 .entity(client)
+                .build();
+        return response;
+    }
+
+    @Path("sortByName")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response readBook() {
+        List<Client> clients = DataHandler.getInstance().readSortedClient();
+        Response response = Response
+                .status(200)
+                .entity(clients)
                 .build();
         return response;
     }

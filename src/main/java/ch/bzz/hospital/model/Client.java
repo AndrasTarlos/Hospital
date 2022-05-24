@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
-public class Client {
+public class Client implements Comparable<Client> {
     private String forename;
     private String name;
     private String sex;
@@ -104,5 +104,10 @@ public class Client {
 
     public void setAhvNumber(String ahvNumber) {
         this.ahvNumber = ahvNumber;
+    }
+
+    @Override
+    public int compareTo(Client client) {
+        return getName().compareTo(client.getName());
     }
 }

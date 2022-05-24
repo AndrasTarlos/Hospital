@@ -13,7 +13,7 @@ import java.util.List;
 
 @Path("equipment")
 public class EquipmentService {
-    @Path("list")
+    @Path("listAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listEquipment() {
@@ -25,11 +25,23 @@ public class EquipmentService {
         return response;
     }
 
-    @Path("read")
+    @Path("readByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(@QueryParam("name") String name) {
         Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
+        Response response = Response
+                .status(200)
+                .entity(equipment)
+                .build();
+        return response;
+    }
+
+    @Path("sortByAmount")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sortEquipment() {
+        List<Equipment> equipment = DataHandler.getInstance().readSortedEquipment();
         Response response = Response
                 .status(200)
                 .entity(equipment)

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -65,6 +66,18 @@ public class DataHandler {
             }
         }
         return equipment;
+    }
+
+    public List<Equipment> readSortedEquipment() {
+        List<Equipment> eL = getEquipmentList();
+        Collections.sort(eL);
+        return eL;
+    }
+
+    public List<Client> readSortedClient() {
+        List<Client> cL = getClientList();
+        Collections.sort(cL);
+        return cL;
     }
 
     /**
@@ -185,6 +198,4 @@ public class DataHandler {
     private void setClientList(List<Client> clientList) {
         this.clientList = clientList;
     }
-
-
 }

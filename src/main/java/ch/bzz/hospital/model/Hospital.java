@@ -38,11 +38,11 @@ public class Hospital {
         this.clients = clients;
     }
 
-    public List<Equipment> getEquipmments() {
+    public List<Equipment> getEquipments() {
         return equipments;
     }
 
-    public void setEquipmments(List<Equipment> equipmments) {
+    public void setEquipments(List<Equipment> equipments) {
         this.equipments = equipments;
     }
 
