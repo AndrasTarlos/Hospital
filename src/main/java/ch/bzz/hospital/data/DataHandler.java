@@ -60,12 +60,19 @@ public class DataHandler {
     }
 
     /**
-     * reads a Equipment by its name
+     * reads an Equipment by its name
      * @param equipmentName
      * @return the Equipment (null=not found)
      */
     public Equipment readEquipmentByName(String equipmentName) {
+        String hi = "hello";
+        if (hi.equals(equipmentName)) {
+
+        }
         Equipment equipment = null;
+        if (equipmentName == null) {
+            return null;
+        }
         for (Equipment entry : getEquipmentList()) {
             if (entry.getName().equals(equipmentName)) {
                 equipment = entry;
@@ -73,6 +80,25 @@ public class DataHandler {
         }
         return equipment;
     }
+
+    /**
+     * reads a Hospital by its name
+     * @param hospitalName
+     * @return the Hospital (null=not found)
+     */
+    public Hospital readHospitalByName(String hospitalName) {
+        Hospital hospital = null;
+        if (hospitalName == null) {
+            return null;
+        }
+        for (Hospital entry : getHospitalList()) {
+            if (entry.getName().equals(hospitalName)) {
+                hospital = entry;
+            }
+        }
+        return hospital;
+    }
+
     /**
      * sorts the Equipment by its amount
      * @return the sorted Equipment list
@@ -113,14 +139,37 @@ public class DataHandler {
      * @param forename, name
      * @return the Client (null=not found)
      */
-    public Client readClientByName(String forename, String name) {
-        Client publisher = null;
+    public List<Client> readClientByName(String forename, String name) {
+        int type = 0;
+        if (forename != null && name != null) {
+            type = 0;
+        } else if (forename == null && name != null) {
+            type = 1;
+        } else if (forename != null && name == null) {
+            type = 2;
+        } else {
+            return null;
+        }
+        List<Client> clients = new ArrayList<>();
+
         for (Client entry : getClientList()) {
-            if (entry.getForename().equals(forename) && entry.getName().equals(name)) {
-                publisher = entry;
+            switch (type) {
+                case 0:
+                    if (entry.getForename().equals(forename) && entry.getName().equals(name)) {
+                        clients.add(entry);
+                    }
+                    break;
+                case 1:
+                    if (entry.getName().equals(name))
+                        clients.add(entry);
+                    break;
+                case 2:
+                    if (entry.getForename().equals(forename))
+                        clients.add(entry);
+                    break;
             }
         }
-        return publisher;
+        return clients;
     }
 
     /**
@@ -147,7 +196,7 @@ public class DataHandler {
      */
     private void readClientJSON() {
         try {
-            String path = Config.getProperty("clientsJSON");
+            String path = Config.getProperty("clientJSON");
             byte[] jsonData = Files.readAllBytes(Paths.get(path));
             ObjectMapper objectMapper = new ObjectMapper();
             Client[] clients = objectMapper.readValue(jsonData,Client[].class);

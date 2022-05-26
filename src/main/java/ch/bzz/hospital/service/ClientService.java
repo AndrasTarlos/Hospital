@@ -27,7 +27,7 @@ public class ClientService {
      * list all known clients
      * @return all clients
      */
-    @Path("listAll")
+    @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listClients() {
@@ -49,11 +49,18 @@ public class ClientService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBook(@QueryParam("forename") String forename, @QueryParam("name") String name) {
-        Client client = DataHandler.getInstance().readClientByName(forename, name);
-        Response response = Response
-                .status(200)
-                .entity(client)
-                .build();
+        List<Client> clients = DataHandler.getInstance().readClientByName(forename, name);
+        Response response;
+        if (clients == null || clients.size() == 0) {
+            response = Response
+                    .status(404)
+                    .build();
+        } else {
+            response = Response
+                    .status(200)
+                    .entity(clients)
+                    .build();
+        }
         return response;
     }
 

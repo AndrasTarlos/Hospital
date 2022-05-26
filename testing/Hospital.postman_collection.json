@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "73cc6a96-8830-4867-8265-039dba426f6a",
+		"_postman_id": "8e4fd12b-d26c-41ba-a636-a94098a2bd73",
 		"name": "Hospital",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,13 +9,50 @@
 			"name": "Client",
 			"item": [
 				{
-					"name": "0.1 read",
+					"name": "0.1 list",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.0 read forename + name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -52,12 +89,25 @@
 					"response": []
 				},
 				{
-					"name": "0.2 read",
+					"name": "0.2.1 read only name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Hump&forename=Amanda",
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -72,11 +122,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "Hump"
-								},
-								{
-									"key": "forename",
-									"value": "Amanda"
+									"value": "Dover"
 								}
 							]
 						}
@@ -84,12 +130,66 @@
 					"response": []
 				},
 				{
-					"name": "0.3 read non existing",
+					"name": "0.2.2 read only forename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Donald&forename=Trump",
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?forename=Ben",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "Ben"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.3 read false forename + name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald&forename=Josh",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,11 +204,11 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "Donald"
+									"value": "Gerald"
 								},
 								{
 									"key": "forename",
-									"value": "Trump"
+									"value": "Josh"
 								}
 							]
 						}
@@ -116,12 +216,25 @@
 					"response": []
 				},
 				{
-					"name": "0.4 listAll",
+					"name": "0.2.4 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/Hospital-1.0/resource/client/listAll",
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -131,7 +244,281 @@
 								"Hospital-1.0",
 								"resource",
 								"client",
-								"listAll"
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gerald"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.5 read false forename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?forename=Gerald",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "Gerald"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.6 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment",
+			"item": [
+				{
+					"name": "1.1 list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.0 read name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Defibrillator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Defibrillator"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.1 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Baseballcap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Baseballcap"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.1 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 sortByAmount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/sortByAmount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"sortByAmount"
 							]
 						}
 					},
@@ -143,12 +530,25 @@
 			"name": "Hospital",
 			"item": [
 				{
-					"name": "0.1 listAll",
+					"name": "2.1 list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/listAll",
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/list",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -158,17 +558,130 @@
 								"Hospital-1.0",
 								"resource",
 								"hospital",
-								"listAll"
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.0 read name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital Uster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Spital Uster"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.1 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital Erlenbach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Spital Erlenbach"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.2 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
 							]
 						}
 					},
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Equipment",
-			"item": []
 		}
 	]
 }

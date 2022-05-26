@@ -28,7 +28,7 @@ public class HospitalService {
      * returns all hospitals
      * @return all known hospitals
      */
-    @Path("listAll")
+    @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listHospital() {
@@ -45,15 +45,22 @@ public class HospitalService {
      * @param name of the hospital
      * @return matching hospital
      */
-    @Path("readByName")
+    @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readEquipment(@QueryParam("name") String name) {
-        Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
-        Response response = Response
+    public Response readHospital(@QueryParam("name") String name) {
+        Hospital hospital = DataHandler.getInstance().readHospitalByName(name);
+        Response response;
+        if (hospital != null) {
+            response = Response
                     .status(200)
-                    .entity(equipment)
+                    .entity(hospital)
                     .build();
-            return response;
+        } else {
+            response = Response
+                    .status(404)
+                    .build();
+        }
+        return response;
     }
 }

@@ -27,7 +27,7 @@ public class EquipmentService {
      * returns all the known equipments
      * @return all equipments
      */
-    @Path("listAll")
+    @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listEquipment() {
@@ -44,15 +44,22 @@ public class EquipmentService {
      * @param name of the equipment
      * @return the found equipment by the given param
      */
-    @Path("readByName")
+    @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(@QueryParam("name") String name) {
         Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
-        Response response = Response
-                .status(200)
-                .entity(equipment)
-                .build();
+        Response response;
+        if (equipment == null) {
+            response = Response
+                    .status(404)
+                    .build();
+        } else {
+            response = Response
+                    .status(200)
+                    .entity(equipment)
+                    .build();
+        }
         return response;
     }
 

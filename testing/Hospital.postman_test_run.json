@@ -1,126 +1,543 @@
 {
-	"id": "037eb932-c81f-4ab0-a56e-ff4d6f41731e",
+	"id": "a879cc0b-630a-42ec-b454-feda91e5be02",
 	"name": "Hospital",
-	"timestamp": "2022-05-24T21:38:29.454Z",
-	"collection_id": "73cc6a96-8830-4867-8265-039dba426f6a",
+	"timestamp": "2022-05-26T18:24:11.952Z",
+	"collection_id": "0-8e4fd12b-d26c-41ba-a636-a94098a2bd73",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 0,
+	"totalPass": 17,
 	"totalFail": 0,
 	"results": [
 		{
-			"id": "4f00e68d-b516-48d4-8303-edbccaee8b0e",
-			"name": "0.1 read",
+			"id": "a6bbe22a-135f-4843-8102-8f626d8aa06e",
+			"name": "0.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/list",
+			"time": 77,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				77
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "bec0540a-7d57-4338-a704-7011b6b9eaee",
+			"name": "0.2.0 read forename + name",
 			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover&forename=Ben",
-			"time": 1782,
+			"time": 17,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				1782
+				17
 			],
 			"allTests": [
-				{}
+				{
+					"Test 0.1 is successful": true
+				}
 			]
 		},
 		{
-			"id": "410e3810-3a2f-4605-b18a-6da0a34b88ef",
-			"name": "0.2 read",
-			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Hump&forename=Amanda",
-			"time": 10,
+			"id": "164fdbb8-1e8f-4754-aaa5-347a65ea5bf0",
+			"name": "0.2.1 read only name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover",
+			"time": 16,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				10
+				16
 			],
 			"allTests": [
-				{}
+				{
+					"Test 0.1 is successful": true
+				}
 			]
 		},
 		{
-			"id": "cdbac1b3-f189-4e34-9099-0c5a09cd11a1",
-			"name": "0.3 read non existing",
-			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Donald&forename=Trump",
-			"time": 7,
+			"id": "a82a84a7-61e6-4b85-a02a-9226a4033182",
+			"name": "0.2.2 read only forename",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?forename=Ben",
+			"time": 30,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				7
+				30
 			],
 			"allTests": [
-				{}
+				{
+					"Test 0.1 is successful": true
+				}
 			]
 		},
 		{
-			"id": "cdb2d666-07c7-4d98-a3bd-fa672e34cbbf",
-			"name": "0.4 listAll",
-			"url": "http://localhost:8080/Hospital-1.0/resource/client/listAll",
+			"id": "67e45c0a-d552-4e90-8f15-357276a0118d",
+			"name": "0.2.3 read false forename + name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald&forename=Josh",
+			"time": 14,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "d145143f-48b2-4d42-8dd3-637ab1d9885f",
+			"name": "0.2.4 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald",
 			"time": 15,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 404,
+				"name": "Not Found"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
 				15
 			],
 			"allTests": [
-				{}
+				{
+					"Test 0.1 is successful": true
+				}
 			]
 		},
 		{
-			"id": "9aec6103-2765-4ca9-9ee7-a18f6f5298a0",
-			"name": "0.1 listAll",
-			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/listAll",
+			"id": "c8a80707-6ec2-49be-9c87-cabc63c4e6d4",
+			"name": "0.2.5 read false forename",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?forename=Gerald",
+			"time": 26,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "2138f06a-a1a9-462e-9d3f-2c0c0f17e9f3",
+			"name": "0.2.6 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read",
+			"time": 15,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "8194efcc-870a-4e90-b20c-64506fdf30a8",
+			"name": "1.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/list",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "673601d4-c606-42b9-9cc0-d7d6ff7c3898",
+			"name": "1.2.0 read name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Defibrillator",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "c89aefe0-23af-414d-bbce-658b948e197e",
+			"name": "1.2.1 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Baseballcap",
+			"time": 19,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "17d057c0-9505-420b-b8d8-aa6a790b482d",
+			"name": "1.2.1 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read",
+			"time": 11,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "2b7db956-14ad-407e-ba55-24a754f33d19",
+			"name": "1.3 sortByAmount",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/sortByAmount",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "20352eb5-032e-4513-9d26-2046752f2f96",
+			"name": "2.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/list",
 			"time": 18,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
 				18
 			],
 			"allTests": [
-				{}
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "e5d9c530-3b4b-4eb9-a8a6-7bfddd372bcf",
+			"name": "2.2.0 read name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital%20Uster",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "838ef48f-0c4b-4bdd-90b0-86071aa5c5cb",
+			"name": "2.2.1 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital%20Erlenbach",
+			"time": 20,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "95674641-a5ed-4f07-bc31-653e68d97381",
+			"name": "2.2.2 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read",
+			"time": 46,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
 			]
 		}
 	],
 	"count": 1,
-	"totalTime": 1832,
+	"totalTime": 401,
 	"collection": {
 		"requests": [
 			{
-				"id": "4f00e68d-b516-48d4-8303-edbccaee8b0e",
+				"id": "a6bbe22a-135f-4843-8102-8f626d8aa06e",
 				"method": "GET"
 			},
 			{
-				"id": "410e3810-3a2f-4605-b18a-6da0a34b88ef",
+				"id": "bec0540a-7d57-4338-a704-7011b6b9eaee",
 				"method": "GET"
 			},
 			{
-				"id": "cdbac1b3-f189-4e34-9099-0c5a09cd11a1",
+				"id": "164fdbb8-1e8f-4754-aaa5-347a65ea5bf0",
 				"method": "GET"
 			},
 			{
-				"id": "cdb2d666-07c7-4d98-a3bd-fa672e34cbbf",
+				"id": "a82a84a7-61e6-4b85-a02a-9226a4033182",
 				"method": "GET"
 			},
 			{
-				"id": "9aec6103-2765-4ca9-9ee7-a18f6f5298a0",
+				"id": "67e45c0a-d552-4e90-8f15-357276a0118d",
+				"method": "GET"
+			},
+			{
+				"id": "d145143f-48b2-4d42-8dd3-637ab1d9885f",
+				"method": "GET"
+			},
+			{
+				"id": "c8a80707-6ec2-49be-9c87-cabc63c4e6d4",
+				"method": "GET"
+			},
+			{
+				"id": "2138f06a-a1a9-462e-9d3f-2c0c0f17e9f3",
+				"method": "GET"
+			},
+			{
+				"id": "8194efcc-870a-4e90-b20c-64506fdf30a8",
+				"method": "GET"
+			},
+			{
+				"id": "673601d4-c606-42b9-9cc0-d7d6ff7c3898",
+				"method": "GET"
+			},
+			{
+				"id": "c89aefe0-23af-414d-bbce-658b948e197e",
+				"method": "GET"
+			},
+			{
+				"id": "17d057c0-9505-420b-b8d8-aa6a790b482d",
+				"method": "GET"
+			},
+			{
+				"id": "2b7db956-14ad-407e-ba55-24a754f33d19",
+				"method": "GET"
+			},
+			{
+				"id": "20352eb5-032e-4513-9d26-2046752f2f96",
+				"method": "GET"
+			},
+			{
+				"id": "e5d9c530-3b4b-4eb9-a8a6-7bfddd372bcf",
+				"method": "GET"
+			},
+			{
+				"id": "838ef48f-0c4b-4bdd-90b0-86071aa5c5cb",
+				"method": "GET"
+			},
+			{
+				"id": "95674641-a5ed-4f07-bc31-653e68d97381",
 				"method": "GET"
 			}
 		]
