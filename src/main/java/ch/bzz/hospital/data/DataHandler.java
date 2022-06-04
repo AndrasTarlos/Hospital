@@ -4,9 +4,12 @@ import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
 import ch.bzz.hospital.model.Hospital;
 import ch.bzz.hospital.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -24,9 +27,9 @@ import java.util.List;
  */
 public class DataHandler {
     private static DataHandler instance = null;
-    private List<Equipment> equipmentList;
-    private List<Client> clientList;
-    private List<Hospital> hospitalList;
+    private static List<Equipment> equipmentList;
+    private static List<Client> clientList;
+    private static List<Hospital> hospitalList;
 
     /**
      * private constructor defeats instantiation
@@ -38,6 +41,15 @@ public class DataHandler {
         readEquipmentJSON();
         setHospitalList(new ArrayList<>());
         readHospitalJSON();
+    }
+
+    /**
+     * initialize the lists with the data
+     */
+    public static void initLists() {
+        DataHandler.setClientList(null);
+        DataHandler.setEquipmentList(null);
+        DataHandler.setHospitalList(null);
     }
 
     /**
@@ -55,7 +67,7 @@ public class DataHandler {
      * reads all Equipment
      * @return list of Equipment
      */
-    public List<Equipment> readAllEquipment() {
+    public static List<Equipment> readAllEquipment() {
         return getEquipmentList();
     }
 
@@ -64,18 +76,14 @@ public class DataHandler {
      * @param equipmentName
      * @return the Equipment (null=not found)
      */
-    public Equipment readEquipmentByName(String equipmentName) {
-        String hi = "hello";
-        if (hi.equals(equipmentName)) {
-
-        }
-        Equipment equipment = null;
+    public static List<Equipment> readEquipmentByName(String equipmentName) {
+        List<Equipment> equipment = new ArrayList<>();
         if (equipmentName == null) {
-            return null;
+            return new ArrayList<>();
         }
         for (Equipment entry : getEquipmentList()) {
             if (entry.getName().equals(equipmentName)) {
-                equipment = entry;
+                equipment.add(entry);
             }
         }
         return equipment;
@@ -86,14 +94,14 @@ public class DataHandler {
      * @param hospitalName
      * @return the Hospital (null=not found)
      */
-    public Hospital readHospitalByName(String hospitalName) {
-        Hospital hospital = null;
+    public static List<Hospital> readHospitalByName(String hospitalName) {
+        List<Hospital> hospital = new ArrayList<>();
         if (hospitalName == null) {
-            return null;
+            return new ArrayList<>();
         }
         for (Hospital entry : getHospitalList()) {
             if (entry.getName().equals(hospitalName)) {
-                hospital = entry;
+                hospital.add(entry);
             }
         }
         return hospital;
@@ -103,7 +111,7 @@ public class DataHandler {
      * sorts the Equipment by its amount
      * @return the sorted Equipment list
      */
-    public List<Equipment> readSortedEquipment() {
+    public static List<Equipment> readSortedEquipment() {
         List<Equipment> eL = getEquipmentList();
         Collections.sort(eL);
         return eL;
@@ -112,7 +120,7 @@ public class DataHandler {
      * sorts the Clients by their names
      * @return the sorted list of Clients
      */
-    public List<Client> readSortedClient() {
+    public static List<Client> readSortedClient() {
         List<Client> cL = getClientList();
         Collections.sort(cL);
         return cL;
@@ -122,7 +130,7 @@ public class DataHandler {
      * reads all Client
      * @return list of Clients
      */
-    public List<Client> readAllClients() {
+    public static List<Client> readAllClients() {
         return getClientList();
     }
 
@@ -130,7 +138,7 @@ public class DataHandler {
      * reads all Hospitals
      * @return list of Hospitals
      */
-    public List<Hospital> readAllHospitals() {
+    public static List<Hospital> readAllHospitals() {
         return getHospitalList();
     }
 
@@ -139,7 +147,7 @@ public class DataHandler {
      * @param forename, name
      * @return the Client (null=not found)
      */
-    public List<Client> readClientByName(String forename, String name) {
+    public static List<Client> readClientByName(String forename, String name) {
         int type = 0;
         if (forename != null && name != null) {
             type = 0;
@@ -172,10 +180,79 @@ public class DataHandler {
         return clients;
     }
 
+    public static boolean deleteClient(String forename, String name) {
+        List<Client> clients = readClientByName(forename, name);
+        if (clients.size() != 0) {
+            for (Client c : clients) {
+                getClientList().remove(c);
+            }
+            writeClientJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean deleteEquipment(String name) {
+        List<Equipment> equipment = readEquipmentByName(name);
+        if (equipment.size() != 0) {
+            for (Equipment e : equipment) {
+                getClientList().remove(e);
+            }
+            writeEquipmentJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean deleteHospital(String name) {
+        List<Hospital> hospitals = readHospitalByName(name);
+        if (hospitals.size() != 0) {
+            for (Hospital h : hospitals) {
+                getClientList().remove(h);
+            }
+            writeHospitalJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * inserts a new client into the clientList
+     *
+     * @param client the book to be saved
+     */
+    public static void insertClient(Client client) {
+        getClientList().add(client);
+        writeClientJSON();
+    }
+
+    /**
+     * inserts a new client into the clientList
+     *
+     * @param equipment the equipment to be saved
+     */
+    public static void insertEquipment(Equipment equipment) {
+        getEquipmentList().add(equipment);
+        writeEquipmentJSON();
+    }
+
+    /**
+     * inserts a new hospital into the hospitalList
+     *
+     * @param hospital the book to be saved
+     */
+    public static void insertHospital(Hospital hospital) {
+        getHospitalList().add(hospital);
+        writeHospitalJSON();
+    }
+
     /**
      * reads the Equipment from the JSON-file
      */
-    private void readEquipmentJSON() {
+    private static void readEquipmentJSON() {
         try {
             String path = Config.getProperty("equipmentJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -194,7 +271,7 @@ public class DataHandler {
     /**
      * reads the Clients from the JSON-file
      */
-    private void readClientJSON() {
+    private static void readClientJSON() {
         try {
             String path = Config.getProperty("clientJSON");
             byte[] jsonData = Files.readAllBytes(Paths.get(path));
@@ -210,7 +287,7 @@ public class DataHandler {
     /**
      * reads the Hospitals from the JSON-file
      */
-    private void readHospitalJSON() {
+    private static void readHospitalJSON() {
         try {
             String path = Config.getProperty("hospitalJSON");
             byte[] jsonData = Files.readAllBytes(Paths.get(path));
@@ -223,12 +300,69 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * writes the clientList to the JSON-file
+     */
+    private static void writeClientJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("clientJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getClientList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the equipmentList to the JSON-file
+     */
+    private static void writeEquipmentJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("equipmentJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getEquipmentList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the hospitalList to the JSON-file
+     */
+    private static void writeHospitalJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("hospitalJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getHospitalList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     /**
      * gets equipmentList
      *
      * @return value of equipment
      */
-    private List<Equipment> getEquipmentList() {
+    private static List<Equipment> getEquipmentList() {
         return equipmentList;
     }
     /**
@@ -236,7 +370,7 @@ public class DataHandler {
      *
      * @return value of Hospital
      */
-    private List<Hospital> getHospitalList() {
+    private static List<Hospital> getHospitalList() {
         return hospitalList;
     }
     /**
@@ -244,7 +378,7 @@ public class DataHandler {
      *
      * @return value of clientList
      */
-    private List<Client> getClientList() {
+    private static List<Client> getClientList() {
         return clientList;
     }
     /**
@@ -252,23 +386,23 @@ public class DataHandler {
      *
      * @param equipmentList the value to set
      */
-    private void setEquipmentList(List<Equipment> equipmentList) {
-        this.equipmentList = equipmentList;
+    private static void setEquipmentList(List<Equipment> equipmentList) {
+        DataHandler.equipmentList = equipmentList;
     }
     /**
      * sets hospitalList
      *
      * @param hospitalList the value to set
      */
-    private void setHospitalList(List<Hospital> hospitalList) {
-        this.hospitalList = hospitalList;
+    private static void setHospitalList(List<Hospital> hospitalList) {
+        DataHandler.hospitalList = hospitalList;
     }
     /**
      * sets clientList
      *
      * @param clientList the value to set
      */
-    private void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
+    private static void setClientList(List<Client> clientList) {
+        DataHandler.clientList = clientList;
     }
 }

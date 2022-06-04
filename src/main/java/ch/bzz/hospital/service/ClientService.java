@@ -3,13 +3,12 @@ package ch.bzz.hospital.service;
 import ch.bzz.hospital.data.DataHandler;
 import ch.bzz.hospital.model.Client;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * <h1>ClientService</h1>
@@ -78,5 +77,63 @@ public class ClientService {
                 .entity(clients)
                 .build();
         return response;
+    }
+
+    /**
+     * deletes a Client identified by his/hers forename and name
+     * @param forename and name the key
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteBook(
+            @QueryParam("forename") String forename,
+            @QueryParam("name") String name) {
+        int httpStatus = 200;
+        if (!DataHandler.getInstance().deleteClient(forename, name)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * insert a new client
+     * @param forename
+     * @param name
+     * @param sex
+     * @param condition
+     * @param phonenumber
+     * @param bill
+     * @return
+     */
+
+    @PUT
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createBook(
+            @FormParam("forename") String forename,
+            @FormParam("name") String name,
+            @FormParam("sex") String sex,
+            @FormParam("condition") String condition,
+            @FormParam("phoneNumber") String phonenumber,
+            @FormParam("bill") Double bill
+    ) {
+        Client client = new Client();
+        client.setForename(forename);
+        client.setName(name);
+        client.setSex(sex);
+        client.setCondition(condition);
+        client.setPhoneNumber(phonenumber);
+        client.setBill(bill);
+
+        DataHandler.getInstance().insertClient(client);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
     }
 }

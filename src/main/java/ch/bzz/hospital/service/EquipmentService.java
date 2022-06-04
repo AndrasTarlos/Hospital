@@ -1,12 +1,10 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
+import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -48,9 +46,9 @@ public class EquipmentService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(@QueryParam("name") String name) {
-        Equipment equipment = DataHandler.getInstance().readEquipmentByName(name);
+        List<Equipment> equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response;
-        if (equipment == null) {
+        if (equipment == null || equipment.size() == 0) {
             response = Response
                     .status(404)
                     .build();
@@ -77,5 +75,55 @@ public class EquipmentService {
                 .entity(equipment)
                 .build();
         return response;
+    }
+
+    /**
+     * deletes a Equipment identified by its name
+     * @param name the key
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteBook(@QueryParam("name") String name) {
+        int httpStatus = 200;
+        if (!DataHandler.getInstance().deleteEquipment(name)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * create a new Equipment
+     * @param name
+     * @param description
+     * @param amount
+     * @param storageRoom
+     * @return response
+     */
+
+    @PUT
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createBook(
+            @FormParam("name") String name,
+            @FormParam("description") String description,
+            @FormParam("amount") Integer amount,
+            @FormParam("storageRoom") String storageRoom
+    ) {
+        Equipment equipment = new Equipment();
+        equipment.setName(name);
+        equipment.setDescription(description);
+        equipment.setAmount(amount);
+        equipment.setStorageRoom(storageRoom);
+
+        DataHandler.getInstance().insertEquipment(equipment);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
     }
 }
