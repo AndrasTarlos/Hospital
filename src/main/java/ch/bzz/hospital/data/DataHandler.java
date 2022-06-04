@@ -47,9 +47,12 @@ public class DataHandler {
      * initialize the lists with the data
      */
     public static void initLists() {
-        DataHandler.setClientList(null);
-        DataHandler.setEquipmentList(null);
-        DataHandler.setHospitalList(null);
+        DataHandler.setClientList(new ArrayList<>());
+        DataHandler.setEquipmentList(new ArrayList<>());
+        DataHandler.setHospitalList(new ArrayList<>());
+        DataHandler.readEquipmentJSON();
+        DataHandler.readClientJSON();
+        DataHandler.readHospitalJSON();
     }
 
     /**
