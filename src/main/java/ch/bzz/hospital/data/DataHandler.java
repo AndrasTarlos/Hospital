@@ -166,7 +166,7 @@ public class DataHandler {
         for (Client entry : getClientList()) {
             switch (type) {
                 case 0:
-                    if (entry.getForename().equals(forename) && entry.getName().equals(name)) {
+                    if (entry.getFirstname().equals(forename) && entry.getName().equals(name)) {
                         clients.add(entry);
                     }
                     break;
@@ -175,7 +175,7 @@ public class DataHandler {
                         clients.add(entry);
                     break;
                 case 2:
-                    if (entry.getForename().equals(forename))
+                    if (entry.getFirstname().equals(forename))
                         clients.add(entry);
                     break;
             }

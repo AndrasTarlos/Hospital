@@ -4,6 +4,7 @@ import ch.bzz.hospital.data.DataHandler;
 import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
 
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -45,7 +46,9 @@ public class EquipmentService {
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readEquipment(@QueryParam("name") String name) {
+    public Response readEquipment(
+            @QueryParam("name") String name
+    ) {
         List<Equipment> equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response;
         if (equipment == null || equipment.size() == 0) {
