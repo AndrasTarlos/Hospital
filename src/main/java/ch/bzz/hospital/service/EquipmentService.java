@@ -1,10 +1,9 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
-import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -101,10 +100,7 @@ public class EquipmentService {
 
     /**
      * create a new Equipment
-     * @param name
-     * @param description
-     * @param amount
-     * @param storageRoom
+     * 
      * @return response
      */
 
@@ -112,16 +108,8 @@ public class EquipmentService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createBook(
-            @FormParam("name") String name,
-            @FormParam("description") String description,
-            @FormParam("amount") Integer amount,
-            @FormParam("storageRoom") String storageRoom
+            @Valid @BeanParam Equipment equipment
     ) {
-        Equipment equipment = new Equipment();
-        equipment.setName(name);
-        equipment.setDescription(description);
-        equipment.setAmount(amount);
-        equipment.setStorageRoom(storageRoom);
 
         DataHandler.getInstance().insertEquipment(equipment);
         return Response

@@ -4,6 +4,7 @@ import ch.bzz.hospital.data.DataHandler;
 import ch.bzz.hospital.model.Equipment;
 import ch.bzz.hospital.model.Hospital;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -82,10 +83,6 @@ public class HospitalService {
 
     /**
      * insert a new hospital
-     * @param name
-     * @param address
-     * @param owner
-     * @param numberOfEmployees
      * @return
      */
 
@@ -93,16 +90,8 @@ public class HospitalService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createBook(
-            @FormParam("name") String name,
-            @FormParam("address") String address,
-            @FormParam("owner") String owner,
-            @FormParam("numberOfEmployees") Integer numberOfEmployees
+            @Valid @BeanParam Hospital hospital
     ) {
-        Hospital hospital = new Hospital();
-        hospital.setName(name);
-        hospital.setAddress(address);
-        hospital.setOwner(owner);
-        hospital.setNumberOfEmployees(numberOfEmployees);
 
         DataHandler.getInstance().insertHospital(hospital);
         return Response

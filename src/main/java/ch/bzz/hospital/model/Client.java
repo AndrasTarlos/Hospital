@@ -11,7 +11,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
@@ -28,35 +27,36 @@ import javax.ws.rs.FormParam;
 public class Client implements Comparable<Client> {
     @FormParam("firstname")
     @NotEmpty
-    @Size(min=2, max=25)
+    @Size(min = 1, max = 25)
     private String firstname;
     @FormParam("name")
     @NotEmpty
-    @Size(min=2, max=25)
+    @Size(min = 1, max = 25)
     private String name;
     @FormParam("sex")
     @NotEmpty
-    @Size(min=3, max=10)
+    @Size(min = 3, max = 10)
     private String sex;
     @FormParam("condition")
     @NotEmpty
-    @Size(min=8, max=80)
+    @Size(min = 8, max = 80)
     private String condition;
     @FormParam("phoneNumber")
     @NotEmpty
-    @Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
+    //@Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
     private String phoneNumber;
     @FormParam("bill")
-    @NotEmpty
-    @DecimalMin(value="0.0")
+    @DecimalMin(value = "0")
     private Double bill;
+    @FormParam("checkin")
+    @NotEmpty
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
     private LocalDate checkin;
     @FormParam("avhNumber")
     @NotEmpty
-    @Pattern(regexp = "/[7][5][6][.][\\d]{4}[.][\\d]{4}[.][\\d]{2}$/")
+    //@Pattern(regexp = "/[7][5][6][.][\\d]{4}[.][\\d]{4}[.][\\d]{2}$/")
     private String ahvNumber;
 
 

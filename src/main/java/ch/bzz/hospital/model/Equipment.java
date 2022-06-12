@@ -1,5 +1,11 @@
 package ch.bzz.hospital.model;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 /**
  * <h1>Equipment</h1>
  *
@@ -11,9 +17,20 @@ package ch.bzz.hospital.model;
  */
 
 public class Equipment implements Comparable<Equipment>{
+    @FormParam("name")
+    @NotEmpty
+    @Size(min = 1 , max = 80)
     private String name;
+    @FormParam("description")
+    @Size(max = 100)
     private String description;
+    @FormParam("amount")
+    @DecimalMin(value = "0")
+    @DecimalMax(value = "2000")
     private Integer amount;
+    @FormParam("storageRoom")
+    @NotEmpty
+    @Size(max = 5)
     private String storageRoom;
 
     /**

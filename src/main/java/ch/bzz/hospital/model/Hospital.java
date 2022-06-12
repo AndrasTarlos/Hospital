@@ -1,5 +1,10 @@
 package ch.bzz.hospital.model;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.util.List;
 
 /**
@@ -15,9 +20,21 @@ import java.util.List;
 public class Hospital {
     private List<Client> clients;
     private List<Equipment> equipments;
+    @FormParam("name")
+    @NotEmpty
+    @Size(min = 4, max = 80)
     private String name;
+    @FormParam("address")
+    @NotEmpty
+    @Size(min = 8, max = 80)
     private String address;
+    @FormParam("owner")
+    @NotEmpty
+    @Size(min = 2, max = 80)
     private String owner;
+    @FormParam("numberOfEmployees")
+    @DecimalMin(value = "0")
+    @DecimalMax(value = "200")
     private Integer numberOfEmployees;
     /**
      * Under construction
