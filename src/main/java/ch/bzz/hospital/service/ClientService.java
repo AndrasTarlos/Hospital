@@ -2,16 +2,12 @@ package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
 import ch.bzz.hospital.model.Client;
-import sun.util.resources.LocaleData;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * <h1>ClientService</h1>
@@ -50,7 +46,10 @@ public class ClientService {
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBook(@QueryParam("firstname") String firstname, @QueryParam("name") String name) {
+    public Response readClient(
+            @QueryParam("firstname") String firstname,
+            @QueryParam("name") String name
+    ) {
         List<Client> clients = DataHandler.getInstance().readClientByName(firstname, name);
         Response response;
         if (clients == null || clients.size() == 0) {
@@ -73,7 +72,7 @@ public class ClientService {
     @Path("sortByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBook() {
+    public Response readClient() {
         List<Client> clients = DataHandler.getInstance().readSortedClient();
         Response response = Response
                 .status(200)
@@ -90,7 +89,7 @@ public class ClientService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteBook(
+    public Response deleteClient(
             @QueryParam("firstname") String firstname,
             @QueryParam("name") String name) {
         int httpStatus = 200;
@@ -104,14 +103,49 @@ public class ClientService {
     }
 
     /**
+     * updates a new client
+     * @param client
+     * @return
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateClient(
+            @Valid @BeanParam Client client
+    ) {
+
+        int httpStatus = 200;
+        Client oldClient = DataHandler.getInstance().readClientByName(client.getFirstname(), client.getName()).get(0);
+
+        if (oldClient != null) {
+            oldClient.setFirstname(client.getFirstname());
+            oldClient.setName(client.getName());
+            oldClient.setSex(client.getSex());
+            oldClient.setPhoneNumber(client.getPhoneNumber());
+            oldClient.setBill(client.getBill());
+            oldClient.setCheckin(client.getCheckin());
+            oldClient.setAhvNumber(client.getAhvNumber());
+
+            DataHandler.updateClient();
+        } else {
+            httpStatus = 410;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
      * insert a new client
      * @return
      */
 
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createBook(
+    public Response createClient(
             @Valid @BeanParam Client client
     ) {
 

@@ -180,12 +180,20 @@ public class DataHandler {
                     break;
             }
         }
+        if (clients.size() == 0)
+            return null;
         return clients;
     }
 
+    /**
+     *
+     * @param forename of Client
+     * @param name of Client
+     * @return boolean value
+     */
     public static boolean deleteClient(String forename, String name) {
         List<Client> clients = readClientByName(forename, name);
-        if (clients.size() != 0) {
+        if (clients != null) {
             for (Client c : clients) {
                 getClientList().remove(c);
             }
@@ -196,6 +204,11 @@ public class DataHandler {
         }
     }
 
+    /**
+     * deletes equipments
+     * @param name of equipment
+     * @return a boolean value
+     */
     public static boolean deleteEquipment(String name) {
         List<Equipment> equipment = readEquipmentByName(name);
         if (equipment.size() != 0) {
@@ -209,6 +222,11 @@ public class DataHandler {
         }
     }
 
+    /**
+     * deletes a hospital
+     * @param name of a hospital
+     * @return a boolean value
+     */
     public static boolean deleteHospital(String name) {
         List<Hospital> hospitals = readHospitalByName(name);
         if (hospitals.size() != 0) {
@@ -233,6 +251,13 @@ public class DataHandler {
     }
 
     /**
+     * updates the client list
+     */
+    public static void updateClient() {
+        writeClientJSON();
+    }
+
+    /**
      * inserts a new client into the clientList
      *
      * @param equipment the equipment to be saved
@@ -243,12 +268,27 @@ public class DataHandler {
     }
 
     /**
+     * updates the equipment list
+     */
+    public static void updateEquipment() {
+        writeEquipmentJSON();
+    }
+
+
+    /**
      * inserts a new hospital into the hospitalList
      *
      * @param hospital the book to be saved
      */
     public static void insertHospital(Hospital hospital) {
         getHospitalList().add(hospital);
+        writeHospitalJSON();
+    }
+
+    /**
+     * updates the hospital list
+     */
+    public static void updateHospital() {
         writeHospitalJSON();
     }
 

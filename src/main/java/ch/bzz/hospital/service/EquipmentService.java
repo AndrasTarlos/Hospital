@@ -87,11 +87,44 @@ public class EquipmentService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteBook(@QueryParam("name") String name) {
+    public Response deleteEquipment(@QueryParam("name") String name) {
         int httpStatus = 200;
         if (!DataHandler.getInstance().deleteEquipment(name)) {
             httpStatus = 410;
         }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * updates a new equipment
+     * @param equipment
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateEquipment(
+            @Valid @BeanParam Equipment equipment
+    ) {
+
+        int httpStatus = 200;
+        Equipment oldEquipment = DataHandler.getInstance().readEquipmentByName(equipment.getName()).get(0);
+
+        if (oldEquipment != null) {
+            oldEquipment.setName(equipment.getName());
+            oldEquipment.setAmount(equipment.getAmount());
+            oldEquipment.setStorageRoom(equipment.getStorageRoom());
+            oldEquipment.setDescription(equipment.getDescription());
+
+
+            DataHandler.updateEquipment();
+        } else {
+            httpStatus = 410;
+        }
+
         return Response
                 .status(httpStatus)
                 .entity("")
@@ -104,10 +137,10 @@ public class EquipmentService {
      * @return response
      */
 
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createBook(
+    public Response createEquipment(
             @Valid @BeanParam Equipment equipment
     ) {
 

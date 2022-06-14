@@ -11,6 +11,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
@@ -43,20 +44,19 @@ public class Client implements Comparable<Client> {
     private String condition;
     @FormParam("phoneNumber")
     @NotEmpty
-    //@Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
+    @Pattern(regexp = "\\+41(79|78|77|76|75|74|22|21|24|26|27|51|91|81|58|41|33|31|34|32|61|62|56|43|44|52|71|55)[0-9]{7}")
     private String phoneNumber;
     @FormParam("bill")
     @DecimalMin(value = "0")
     private Double bill;
     @FormParam("checkin")
-    @NotEmpty
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
     private LocalDate checkin;
     @FormParam("avhNumber")
     @NotEmpty
-    //@Pattern(regexp = "/[7][5][6][.][\\d]{4}[.][\\d]{4}[.][\\d]{2}$/")
+    @Pattern(regexp = "756.[0-9]{4}.[0-9]{4}.[0-9]{2}")
     private String ahvNumber;
 
 

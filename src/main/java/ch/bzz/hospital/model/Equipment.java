@@ -19,9 +19,10 @@ import javax.ws.rs.FormParam;
 public class Equipment implements Comparable<Equipment>{
     @FormParam("name")
     @NotEmpty
-    @Size(min = 1 , max = 80)
+    @Size(max = 80)
     private String name;
     @FormParam("description")
+    @NotEmpty
     @Size(max = 100)
     private String description;
     @FormParam("amount")

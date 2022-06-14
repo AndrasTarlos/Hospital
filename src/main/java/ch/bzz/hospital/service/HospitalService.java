@@ -1,7 +1,6 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
-import ch.bzz.hospital.model.Equipment;
 import ch.bzz.hospital.model.Hospital;
 
 import javax.validation.Valid;
@@ -63,14 +62,16 @@ public class HospitalService {
     }
 
     /**
-     * deletes a Equipment identified by its name
+     * deletes a Hospital identified by its name
      * @param name the key
      * @return Response
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteBook(@QueryParam("name") String name) {
+    public Response deleteHospital(
+            @QueryParam("name") String name
+    ) {
         int httpStatus = 200;
         if (!DataHandler.getInstance().deleteHospital(name)) {
             httpStatus = 410;
@@ -82,14 +83,46 @@ public class HospitalService {
     }
 
     /**
+     * updates a new hospital
+     * @param hospital
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateHospital(
+            @Valid @BeanParam Hospital hospital
+    ) {
+
+        int httpStatus = 200;
+        Hospital oldHospital = DataHandler.getInstance().readHospitalByName(hospital.getName()).get(0);
+
+        if (oldHospital != null) {
+            oldHospital.setName(hospital.getName());
+            oldHospital.setNumberOfEmployees(hospital.getNumberOfEmployees());
+            oldHospital.setOwner(hospital.getOwner());
+            oldHospital.setAddress(hospital.getAddress());
+
+            DataHandler.updateHospital();
+        } else {
+            httpStatus = 410;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
      * insert a new hospital
      * @return
      */
 
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createBook(
+    public Response createHospital(
             @Valid @BeanParam Hospital hospital
     ) {
 
