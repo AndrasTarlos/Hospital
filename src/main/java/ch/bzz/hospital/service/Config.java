@@ -1,5 +1,7 @@
 package ch.bzz.hospital.service;
 
+import ch.bzz.hospital.exception.MyExceptionMapper;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -36,6 +38,7 @@ public class Config extends Application {
         providers.add(EquipmentService.class);
         providers.add(HospitalService.class);
         providers.add(TestService.class);
+        providers.add(MyExceptionMapper.class);
         return providers;
     }
 
