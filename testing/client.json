@@ -1,60 +1,60 @@
 [
     {
-        "forename": "Ben",
+        "firstname": "Ben",
         "name": "Dover",
         "sex": "Male",
         "condition": "IMS",
-        "phoneNumber": "798274391",
+        "phoneNumber": "+41798274391",
         "bill": "1000",
         "checkin": "2022.09.26",
         "ahvNumber": "756.1234.5678.97"
     },
     {
-        "forename": "Hugh",
+        "firstname": "Hugh",
         "name": "Jass",
         "sex": "Male",
         "condition": "Cancer",
-        "phoneNumber": "791374552",
+        "phoneNumber": "+41794271336",
         "bill": "390222",
         "checkin": "2022.09.02",
         "ahvNumber": "756.2234.4674.55"
     },
     {
-        "forename": "Alexander",
+        "firstname": "Alexander",
         "name": "Benson",
         "sex": "Male",
         "condition": "Autism",
-        "phoneNumber": "795119149",
+        "phoneNumber": "+41797244111",
         "bill": "100",
         "checkin": "2022.09.21",
         "ahvNumber": "756.4234.5678.94"
     },
     {
-        "forename": "Nik",
+        "firstname": "Nik",
         "name": "Fury",
         "sex": "Male",
         "condition": "Chlamydia",
-        "phoneNumber": "792274391",
+        "phoneNumber": "+41797279399",
         "bill": "2000",
         "checkin": "2022.09.05",
         "ahvNumber": "756.9234.5678.62"
     },
     {
-        "forename": "Adolf",
+        "firstname": "Adolf",
         "name": "Oliver",
         "sex": "Male",
         "condition": "Arthritis",
-        "phoneNumber": "791714241",
+        "phoneNumber": "+41798131691",
         "bill": "4000",
         "checkin": "2022.09.01",
         "ahvNumber": "756.2234.5678.82"
     },
     {
-        "forename": "Amanda",
+        "firstname": "Amanda",
         "name": "Hump",
         "sex": "Female",
         "condition": "Asthma",
-        "phoneNumber": "798284992",
+        "phoneNumber": "+41797278791",
         "bill": "12",
         "checkin": "2022.09.12",
         "ahvNumber": "756.5827.8428.37"
