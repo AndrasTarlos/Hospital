@@ -98,10 +98,14 @@ public class HospitalService {
         Hospital oldHospital = DataHandler.getInstance().readHospitalByName(hospital.getName()).get(0);
 
         if (oldHospital != null) {
-            oldHospital.setName(hospital.getName());
-            oldHospital.setNumberOfEmployees(hospital.getNumberOfEmployees());
-            oldHospital.setOwner(hospital.getOwner());
-            oldHospital.setAddress(hospital.getAddress());
+            if (hospital.getName() != null)
+                oldHospital.setName(hospital.getName());
+            if (hospital.getNumberOfEmployees() != null)
+                oldHospital.setNumberOfEmployees(hospital.getNumberOfEmployees());
+            if (hospital.getOwner() != null)
+                oldHospital.setOwner(hospital.getOwner());
+            if (hospital.getAddress() != null)
+                oldHospital.setAddress(hospital.getAddress());
 
             DataHandler.updateHospital();
         } else {

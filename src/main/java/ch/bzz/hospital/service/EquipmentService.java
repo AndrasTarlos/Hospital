@@ -1,9 +1,11 @@
 package ch.bzz.hospital.service;
 
+import ch.bzz.hospital.annotation.UniqueEquipmentName;
 import ch.bzz.hospital.data.DataHandler;
 import ch.bzz.hospital.model.Equipment;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -114,10 +116,14 @@ public class EquipmentService {
         Equipment oldEquipment = DataHandler.getInstance().readEquipmentByName(equipment.getName()).get(0);
 
         if (oldEquipment != null) {
-            oldEquipment.setName(equipment.getName());
-            oldEquipment.setAmount(equipment.getAmount());
-            oldEquipment.setStorageRoom(equipment.getStorageRoom());
-            oldEquipment.setDescription(equipment.getDescription());
+            if (equipment.getName() != null)
+                oldEquipment.setName(equipment.getName());
+            if (equipment.getAmount() != null)
+                oldEquipment.setAmount(equipment.getAmount());
+            if (equipment.getStorageRoom() != null)
+                oldEquipment.setStorageRoom(equipment.getStorageRoom());
+            if (equipment.getDescription() != null)
+                oldEquipment.setDescription(equipment.getDescription());
 
 
             DataHandler.updateEquipment();
@@ -141,7 +147,11 @@ public class EquipmentService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createEquipment(
-            @Valid @BeanParam Equipment equipment
+            @Valid @BeanParam Equipment equipment,
+
+            @UniqueEquipmentName()
+            @Size(max = 80)
+            @FormParam("name") String name
     ) {
 
         DataHandler.getInstance().insertEquipment(equipment);

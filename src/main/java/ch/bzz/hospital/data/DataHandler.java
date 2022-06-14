@@ -405,7 +405,7 @@ public class DataHandler {
      *
      * @return value of equipment
      */
-    private static List<Equipment> getEquipmentList() {
+    public static List<Equipment> getEquipmentList() {
         return equipmentList;
     }
     /**
@@ -421,7 +421,7 @@ public class DataHandler {
      *
      * @return value of clientList
      */
-    private static List<Client> getClientList() {
+    public static List<Client> getClientList() {
         return clientList;
     }
     /**

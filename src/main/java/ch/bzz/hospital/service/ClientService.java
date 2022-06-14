@@ -113,26 +113,40 @@ public class ClientService {
     public Response updateClient(
             @Valid @BeanParam Client client
     ) {
+        try {
+            int httpStatus = 200;
 
-        int httpStatus = 200;
-        Client oldClient = DataHandler.getInstance().readClientByName(client.getFirstname(), client.getName()).get(0);
+            Client oldClient = DataHandler.getInstance().readClientByName(client.getFirstname(), client.getName()).get(0);
+            if (oldClient != null) {
+                if (client.getFirstname() != null)
+                    oldClient.setFirstname(client.getFirstname());
+                if (client.getName() != null)
+                    oldClient.setName(client.getName());
+                if (client.getSex() != null)
+                    oldClient.setSex(client.getSex());
+                if (client.getPhoneNumber() != null)
+                    oldClient.setPhoneNumber(client.getPhoneNumber());
+                if (client.getBill() != null)
+                    oldClient.setBill(client.getBill());
+                if (client.getCheckin() != null)
+                    oldClient.setCheckin(client.getCheckin());
+                if (client.getAhvNumber() != null)
+                    oldClient.setAhvNumber(client.getAhvNumber());
 
-        if (oldClient != null) {
-            oldClient.setFirstname(client.getFirstname());
-            oldClient.setName(client.getName());
-            oldClient.setSex(client.getSex());
-            oldClient.setPhoneNumber(client.getPhoneNumber());
-            oldClient.setBill(client.getBill());
-            oldClient.setCheckin(client.getCheckin());
-            oldClient.setAhvNumber(client.getAhvNumber());
+                DataHandler.updateClient();
+            } else {
+                httpStatus = 410;
+            }
 
-            DataHandler.updateClient();
-        } else {
-            httpStatus = 410;
+            return Response
+                    .status(httpStatus)
+                    .entity("")
+                    .build();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
         return Response
-                .status(httpStatus)
+                .status(400)
                 .entity("")
                 .build();
     }
