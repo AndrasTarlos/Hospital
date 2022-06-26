@@ -66,6 +66,14 @@ public class TestService {
             fileOutputStream = new FileOutputStream(Config.getProperty("hospitalJSON"));
             fileOutputStream.write(hospitalJSON);
 
+            path = Paths.get(Config.getProperty("userJSON"));
+            filename = path.getFileName().toString();
+            folder = path.getParent().toString();
+
+            byte[] userJSON = Files.readAllBytes(Paths.get(folder, "backup", filename));
+            fileOutputStream = new FileOutputStream(Config.getProperty("userJSON"));
+            fileOutputStream.write(userJSON);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

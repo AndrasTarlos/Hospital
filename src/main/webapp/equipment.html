@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Andras Tarlos"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Equipment"/>
+    <meta name="description" content="Lists all equipments"/>
+    <title>Ausrüstungsliste</title>
+    <script src="./js/showequipment.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>Ausrüstungsliste</h3>
+<div id="nav">
+    <span id="message" style="color: red;"></span>
+</div>
+<form id="equipmentForm">
+    <table id="equipments">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Beschreibung</th>
+            <th>Anzahl</th>
+            <th>Lager</th>
+        </tr>
+        </thead>
+        <tbody id="equipmentlist">
+
+        </tbody>
+    </table>
+    <p>
+        <a href="./equipmentedit.html">Neue Ausrüstung</a>
+    </p>
+</form>
+</body>
+</html>

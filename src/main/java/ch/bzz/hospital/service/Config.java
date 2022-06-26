@@ -39,6 +39,7 @@ public class Config extends Application {
         providers.add(HospitalService.class);
         providers.add(TestService.class);
         providers.add(MyExceptionMapper.class);
+        providers.add(UserService.class);
         return providers;
     }
 

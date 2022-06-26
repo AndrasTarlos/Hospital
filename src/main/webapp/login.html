@@ -1,0 +1,69 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+
+@AndrasTarlos
+bzz-fgict
+/
+M133-BookUltimate
+Internal
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+M133-BookUltimate/src/main/webapp/index.html
+@marcel-suter-bzz
+marcel-suter-bzz added AuthorizationFilter and annotations to the services
+Latest commit 28037f2 13 days ago
+History
+1 contributor
+41 lines (41 sloc)  1.21 KB
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Marcel Suter"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Bookshelf"/>
+    <meta name="description" content="bookshelf books list table"/>
+    <title>Anmeldung</title>
+    <link rel="stylesheet" href="./css/bookshelf.css">
+    <script src="./js/util.js"></script>
+    <script src="./js/login.js"></script>
+</head>
+<body>
+<nav id="nav">
+    <span><a href="./cl.html">Kliente</a></span>
+    <span><a href="./publisherlist.html">Ausrüstungen</a></span>
+    <span><a href="./authorlist.html">Spitale</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Anmeldung</h3>
+<form id="loginForm">
+    <table>
+        <tr>
+            <td><label for="username">Benutzername</label></td>
+            <td><input id="username" name="username" type="text"/>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td><input id="password" name="password" type="password"/>
+        </tr>
+        <tr>
+            <td>
+                <button id="login" type="submit">Anmelden</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
