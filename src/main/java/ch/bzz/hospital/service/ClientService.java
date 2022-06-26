@@ -28,10 +28,18 @@ public class ClientService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listClients() {
+    public Response listClients(
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus;
         List<Client> clientList = DataHandler.getInstance().readAllClients();
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+        }
         Response response = Response
-                .status(200)
+                .status(httpStatus)
                 .entity(clientList)
                 .build();
         return response;

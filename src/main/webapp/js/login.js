@@ -7,8 +7,15 @@
 /**
  * register listeners
  */
-$(document).read(function () {
+$(document).ready(function () {
+    /**
+     * listener for submitting the ofrm sends the login data to the web service
+     */
     $("#loginForm").submit(sendLogin);
+    /**
+     * listener for button [Abmelden]
+     */
+    $("#logoff").click(sendLogoff())
 });
 
 function sendLogin(form) {
@@ -21,7 +28,7 @@ function sendLogin(form) {
             data: $("#loginForm").serialize()
         })
         .done(function () {
-            window.location.href = "./hospital.html"
+            window.location.href = "./equipment.html"
         })
         .fail(function (xhr, status, errorThrown) {
             if (xhr.status == 404) {
@@ -37,6 +44,18 @@ function sendLogin(form) {
  * sends the logoff-request
  */
 function sendLogoff() {
+    form.preventDefault();
+    $
+        .ajax( {
+            urL: "./resource/user/logout",
+            dataType: "text",
+            type: "DELETE"
+        })
+        .done(function () {
+            window.location.href = "./login.html"
+        })
+        .fail(function (xhr, status, errorThrown) {
 
+        })
 
 }
