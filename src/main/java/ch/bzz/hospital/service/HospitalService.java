@@ -34,17 +34,14 @@ public class HospitalService {
     ) {
         List<Hospital> hospitalList = DataHandler.getInstance().readAllHospitals();
         Response response;
-        int httpStatus;
         if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
-            httpStatus = 403;
             response = Response
-                    .status(httpStatus)
+                    .status(403)
                     .entity("")
                     .build();
         } else {
-            httpStatus = 200;
             response = Response
-                    .status(httpStatus)
+                    .status(200)
                     .entity(hospitalList)
                     .build();
         }
@@ -59,12 +56,20 @@ public class HospitalService {
     @Path("read")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readHospital(@QueryParam("name") String name) {
+    public Response readHospital(
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
+    ) {
         List<Hospital> hospital = DataHandler.getInstance().readHospitalByName(name);
         Response response;
         if (hospital.size() != 0) {
             response = Response
                     .status(200)
+                    .entity(hospital)
+                    .build();
+        } else if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            response = Response
+                    .status(403)
                     .entity(hospital)
                     .build();
         } else {
@@ -84,11 +89,18 @@ public class HospitalService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteHospital(
-            @QueryParam("name") String name
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
     ) {
-        int httpStatus = 200;
-        if (!DataHandler.getInstance().deleteHospital(name)) {
-            httpStatus = 410;
+
+        int httpStatus = 0;
+        if (userRole.equals("admin")) {
+            httpStatus = 200;
+            if (!DataHandler.getInstance().deleteHospital(name)) {
+                httpStatus = 410;
+            }
+        } else {
+            httpStatus = 403;
         }
         return Response
                 .status(httpStatus)
@@ -105,25 +117,30 @@ public class HospitalService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateHospital(
-            @Valid @BeanParam Hospital hospital
+            @Valid @BeanParam Hospital hospital,
+            @CookieParam("userRole") String userRole
     ) {
 
         int httpStatus = 200;
-        Hospital oldHospital = DataHandler.getInstance().readHospitalByName(hospital.getName()).get(0);
+        if (userRole.equals("admin")) {
+            Hospital oldHospital = DataHandler.getInstance().readHospitalByName(hospital.getName()).get(0);
 
-        if (oldHospital != null) {
-            if (hospital.getName() != null)
-                oldHospital.setName(hospital.getName());
-            if (hospital.getNumberOfEmployees() != null)
-                oldHospital.setNumberOfEmployees(hospital.getNumberOfEmployees());
-            if (hospital.getOwner() != null)
-                oldHospital.setOwner(hospital.getOwner());
-            if (hospital.getAddress() != null)
-                oldHospital.setAddress(hospital.getAddress());
+            if (oldHospital != null) {
+                if (hospital.getName() != null)
+                    oldHospital.setName(hospital.getName());
+                if (hospital.getNumberOfEmployees() != null)
+                    oldHospital.setNumberOfEmployees(hospital.getNumberOfEmployees());
+                if (hospital.getOwner() != null)
+                    oldHospital.setOwner(hospital.getOwner());
+                if (hospital.getAddress() != null)
+                    oldHospital.setAddress(hospital.getAddress());
 
-            DataHandler.updateHospital();
+                DataHandler.updateHospital();
+            } else {
+                httpStatus = 410;
+            }
         } else {
-            httpStatus = 410;
+            httpStatus = 403;
         }
 
         return Response
@@ -141,12 +158,18 @@ public class HospitalService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createHospital(
-            @Valid @BeanParam Hospital hospital
+            @Valid @BeanParam Hospital hospital,
+            @CookieParam("userRole") String userRole
     ) {
-
-        DataHandler.getInstance().insertHospital(hospital);
+        int httpStatus = 0;
+        if (userRole.equals("admin") && userRole != null) {
+            DataHandler.getInstance().insertHospital(hospital);
+            httpStatus = 200;
+        } else {
+            httpStatus = 403;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }

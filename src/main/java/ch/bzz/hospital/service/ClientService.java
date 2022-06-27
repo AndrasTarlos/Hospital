@@ -34,7 +34,7 @@ public class ClientService {
         Response response;
         int httpStatus;
         List<Client> clientList = DataHandler.getInstance().readAllClients();
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
             httpStatus = 403;
             response = Response
                     .status(httpStatus)
@@ -61,11 +61,16 @@ public class ClientService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readClient(
             @QueryParam("firstname") String firstname,
-            @QueryParam("name") String name
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
     ) {
         List<Client> clients = DataHandler.getInstance().readClientByName(firstname, name);
         Response response;
-        if (clients == null || clients.size() == 0) {
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            response = Response
+                    .status(403)
+                    .build();
+        } else if (clients == null || clients.size() == 0) {
             response = Response
                     .status(404)
                     .build();
@@ -85,12 +90,22 @@ public class ClientService {
     @Path("sortByName")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readClient() {
+    public Response readClient(
+            @CookieParam("userRole") String userRole
+    ) {
+        Response response;
         List<Client> clients = DataHandler.getInstance().readSortedClient();
-        Response response = Response
-                .status(200)
-                .entity(clients)
-                .build();
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            response = Response
+                    .status(403)
+                    .entity("")
+                    .build();
+        } else {
+            response = Response
+                    .status(200)
+                    .entity(clients)
+                    .build();
+        }
         return response;
     }
 
@@ -104,10 +119,15 @@ public class ClientService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteClient(
             @QueryParam("firstname") String firstname,
-            @QueryParam("name") String name) {
-        int httpStatus = 200;
-        if (!DataHandler.getInstance().deleteClient(firstname, name)) {
-            httpStatus = 410;
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 0;
+        if (userRole.equals("admin")) {
+            httpStatus = 200;
+            if (!DataHandler.getInstance().deleteClient(firstname, name)) {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)
@@ -124,31 +144,37 @@ public class ClientService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateClient(
-            @Valid @BeanParam Client client
+            @Valid @BeanParam Client client,
+            @CookieParam("userRole") String userRole
     ) {
         try {
-            int httpStatus = 200;
+            int httpStatus = 0;
+            if (userRole != null && userRole.equals("admin")) {
+                httpStatus = 200;
 
-            Client oldClient = DataHandler.getInstance().readClientByName(client.getFirstname(), client.getName()).get(0);
-            if (oldClient != null) {
-                if (client.getFirstname() != null)
-                    oldClient.setFirstname(client.getFirstname());
-                if (client.getName() != null)
-                    oldClient.setName(client.getName());
-                if (client.getSex() != null)
-                    oldClient.setSex(client.getSex());
-                if (client.getPhoneNumber() != null)
-                    oldClient.setPhoneNumber(client.getPhoneNumber());
-                if (client.getBill() != null)
-                    oldClient.setBill(client.getBill());
-                if (client.getCheckin() != null)
-                    oldClient.setCheckin(client.getCheckin());
-                if (client.getAhvNumber() != null)
-                    oldClient.setAhvNumber(client.getAhvNumber());
+                Client oldClient = DataHandler.getInstance().readClientByName(client.getFirstname(), client.getName()).get(0);
+                if (oldClient != null) {
+                    if (client.getFirstname() != null)
+                        oldClient.setFirstname(client.getFirstname());
+                    if (client.getName() != null)
+                        oldClient.setName(client.getName());
+                    if (client.getSex() != null)
+                        oldClient.setSex(client.getSex());
+                    if (client.getPhoneNumber() != null)
+                        oldClient.setPhoneNumber(client.getPhoneNumber());
+                    if (client.getBill() != null)
+                        oldClient.setBill(client.getBill());
+                    if (client.getCheckin() != null)
+                        oldClient.setCheckin(client.getCheckin());
+                    if (client.getAhvNumber() != null)
+                        oldClient.setAhvNumber(client.getAhvNumber());
 
-                DataHandler.updateClient();
+                    DataHandler.updateClient();
+                } else {
+                    httpStatus = 410;
+                }
             } else {
-                httpStatus = 410;
+                httpStatus = 403;
             }
 
             return Response
@@ -173,12 +199,18 @@ public class ClientService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createClient(
-            @Valid @BeanParam Client client
+            @Valid @BeanParam Client client,
+            @CookieParam("userRole") String userRole
     ) {
-
-        DataHandler.getInstance().insertClient(client);
+        int httpStatus = 0;
+        if (userRole != null && userRole.equals("admin")) {
+            DataHandler.getInstance().insertClient(client);
+            httpStatus = 200;
+        } else {
+            httpStatus = 403;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }

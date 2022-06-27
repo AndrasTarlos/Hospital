@@ -37,7 +37,7 @@ public class EquipmentService {
         Response response;
         int httpStatus;
         List<Equipment> equipmentList = DataHandler.getInstance().readAllEquipment();
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
             httpStatus = 403;
             response = Response
                     .status(httpStatus)
@@ -62,11 +62,16 @@ public class EquipmentService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEquipment(
-            @QueryParam("name") String name
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
     ) {
         List<Equipment> equipment = DataHandler.getInstance().readEquipmentByName(name);
         Response response;
-        if (equipment == null || equipment.size() == 0) {
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            response = Response
+                    .status(403)
+                    .build();
+        } else if (equipment == null || equipment.size() == 0) {
             response = Response
                     .status(404)
                     .build();
@@ -86,12 +91,22 @@ public class EquipmentService {
     @Path("sortByAmount")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response sortEquipment() {
+    public Response sortEquipment(
+            @CookieParam("userRole") String userRole
+    ) {
+        Response response;
         List<Equipment> equipment = DataHandler.getInstance().readSortedEquipment();
-        Response response = Response
-                .status(200)
-                .entity(equipment)
-                .build();
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            response = Response
+                    .status(403)
+                    .entity("")
+                    .build();
+        } else {
+            response = Response
+                    .status(200)
+                    .entity(equipment)
+                    .build();
+        }
         return response;
     }
 
@@ -103,10 +118,18 @@ public class EquipmentService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteEquipment(@QueryParam("name") String name) {
-        int httpStatus = 200;
-        if (!DataHandler.getInstance().deleteEquipment(name)) {
-            httpStatus = 410;
+    public Response deleteEquipment(
+            @QueryParam("name") String name,
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 0;
+        if (userRole.equals("admin")) {
+            httpStatus = 200;
+            if (!DataHandler.getInstance().deleteEquipment(name)) {
+                httpStatus = 410;
+            }
+        } else {
+            httpStatus = 403;
         }
         return Response
                 .status(httpStatus)
@@ -123,26 +146,32 @@ public class EquipmentService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateEquipment(
-            @Valid @BeanParam Equipment equipment
+            @Valid @BeanParam Equipment equipment,
+            @CookieParam("userRole") String userRole
     ) {
 
-        int httpStatus = 200;
-        Equipment oldEquipment = DataHandler.getInstance().readEquipmentByName(equipment.getName()).get(0);
+        int httpStatus = 0;
+        if (userRole.equals("admin")) {
+            httpStatus = 200;
+            Equipment oldEquipment = DataHandler.getInstance().readEquipmentByName(equipment.getName()).get(0);
 
-        if (oldEquipment != null) {
-            if (equipment.getName() != null)
-                oldEquipment.setName(equipment.getName());
-            if (equipment.getAmount() != null)
-                oldEquipment.setAmount(equipment.getAmount());
-            if (equipment.getStorageRoom() != null)
-                oldEquipment.setStorageRoom(equipment.getStorageRoom());
-            if (equipment.getDescription() != null)
-                oldEquipment.setDescription(equipment.getDescription());
+            if (oldEquipment != null) {
+                if (equipment.getName() != null)
+                    oldEquipment.setName(equipment.getName());
+                if (equipment.getAmount() != null)
+                    oldEquipment.setAmount(equipment.getAmount());
+                if (equipment.getStorageRoom() != null)
+                    oldEquipment.setStorageRoom(equipment.getStorageRoom());
+                if (equipment.getDescription() != null)
+                    oldEquipment.setDescription(equipment.getDescription());
 
 
-            DataHandler.updateEquipment();
+                DataHandler.updateEquipment();
+            } else {
+                httpStatus = 410;
+            }
         } else {
-            httpStatus = 410;
+            httpStatus = 403;
         }
 
         return Response
@@ -162,15 +191,21 @@ public class EquipmentService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response createEquipment(
             @Valid @BeanParam Equipment equipment,
-
             @UniqueEquipmentName()
             @Size(max = 80)
-            @FormParam("name") String name
-    ) {
+            @FormParam("name") String name,
+            @CookieParam("userRole") String userRole
 
-        DataHandler.getInstance().insertEquipment(equipment);
+    ) {
+        int httpStatus = 0;
+        if (userRole.equals("admin")) {
+            httpStatus = 200;
+            DataHandler.getInstance().insertEquipment(equipment);
+        } else {
+            httpStatus = 403;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
