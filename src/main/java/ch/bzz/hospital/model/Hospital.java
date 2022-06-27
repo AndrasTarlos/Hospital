@@ -36,36 +36,7 @@ public class Hospital {
     @DecimalMin(value = "0")
     @DecimalMax(value = "200")
     private Integer numberOfEmployees;
-    /**
-     * Under construction
-     */
-    public void createHospital() {
 
-    }
-    /**
-     * Under construction
-     */
-    public void readHospital() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void listHospital() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void updateHospital() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void deleteHospital() {
-
-    }
     /**
      * gets clientList
      *
