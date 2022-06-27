@@ -4,6 +4,7 @@ import ch.bzz.hospital.model.Equipment;
 import ch.bzz.hospital.model.User;
 import ch.bzz.hospital.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,7 +24,8 @@ public class UserData {
     public static User findUser(String username, String password) {
         User user = new User();
         List<User> userList = readJson();
-
+        // New encrypted password
+        password = DigestUtils.sha256Hex(password);
         for (User entry: userList) {
             if (entry.getName().equals(username) &&
         entry.getPassword().equals(password)) {

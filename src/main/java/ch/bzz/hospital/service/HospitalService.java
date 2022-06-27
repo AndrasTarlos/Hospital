@@ -1,6 +1,7 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
+import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Hospital;
 
 import javax.validation.Valid;
@@ -28,12 +29,25 @@ public class HospitalService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listHospital() {
+    public Response listHospital(
+            @CookieParam("userRole") String userRole
+    ) {
         List<Hospital> hospitalList = DataHandler.getInstance().readAllHospitals();
-        Response response = Response
-                .status(200)
-                .entity(hospitalList)
-                .build();
+        Response response;
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+            httpStatus = 403;
+            response = Response
+                    .status(httpStatus)
+                    .entity("")
+                    .build();
+        } else {
+            httpStatus = 200;
+            response = Response
+                    .status(httpStatus)
+                    .entity(hospitalList)
+                    .build();
+        }
         return response;
     }
 

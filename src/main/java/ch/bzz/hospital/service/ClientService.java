@@ -31,17 +31,22 @@ public class ClientService {
     public Response listClients(
             @CookieParam("userRole") String userRole
     ) {
+        Response response;
         int httpStatus;
         List<Client> clientList = DataHandler.getInstance().readAllClients();
         if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
+            response = Response
+                    .status(httpStatus)
+                    .entity("")
+                    .build();
         } else {
             httpStatus = 200;
+            response = Response
+                    .status(httpStatus)
+                    .entity(clientList)
+                    .build();
         }
-        Response response = Response
-                .status(httpStatus)
-                .entity(clientList)
-                .build();
         return response;
     }
 

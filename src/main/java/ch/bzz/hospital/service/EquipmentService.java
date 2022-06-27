@@ -2,6 +2,7 @@ package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.annotation.UniqueEquipmentName;
 import ch.bzz.hospital.data.DataHandler;
+import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Equipment;
 
 import javax.validation.Valid;
@@ -30,12 +31,25 @@ public class EquipmentService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listEquipment() {
+    public Response listEquipment(
+            @CookieParam("userRole") String userRole
+    ) {
+        Response response;
+        int httpStatus;
         List<Equipment> equipmentList = DataHandler.getInstance().readAllEquipment();
-        Response response = Response
-                .status(200)
-                .entity(equipmentList)
-                .build();
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+            response = Response
+                    .status(httpStatus)
+                    .entity("")
+                    .build();
+        } else {
+            httpStatus = 200;
+            response = Response
+                    .status(httpStatus)
+                    .entity(equipmentList)
+                    .build();
+        }
         return response;
     }
 
