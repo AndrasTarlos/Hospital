@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Andras Tarlos"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Hospital"/>
+    <meta name="description" content="hospital form edit"/>
+    <title>Spital bearbeiten</title>
+    <script src="./js/hospitaledit.js"></script>
+    <script src="./js/util.js"></script>
+</head>
+<body>
+<h3>Spital bearbeiten</h3>
+<nav id="nav">
+    <span id="message" style="color: red;"></span>
+</nav>
+<form id="clienteditForm" name="clientedit">
+    <table>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td><input id="name" name="name" type="text" size="80" minlength="4" maxlength="80" required/></td>
+        </tr>
+        <tr>
+            <td><label for="address">Adresse</label></td>
+            <td><input id="address" name="address" type="text" size="80" minlength="8" maxlength="80" required/></td>
+        </tr>
+        <tr>
+            <td><label for="owner">Eigentümer</label></td>
+            <td><input id="owner" name="owner" type="text" size="80" minlength="2" maxlength="80" required/></td>
+        </tr>
+        <tr>
+            <td><label for="numberOfEmployees">Anzahl von Angestellten</label></td>
+            <td><input id="numberOfEmployees" name="numberOfEmployees" type="number" min="0" max="200"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Speichern</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Zurücksetzen</button>
+            </td>
+            <td>
+                <button id="cancel" type="button">Abbruch</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

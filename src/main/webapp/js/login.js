@@ -15,7 +15,7 @@ $(document).ready(function () {
     /**
      * listener for button [Abmelden]
      */
-    $("#logoff").click(sendLogoff())
+    $("#logoff").click(sendLogoff)
 });
 
 function sendLogin(form) {
@@ -43,7 +43,7 @@ function sendLogin(form) {
 /**
  * sends the logoff-request
  */
-function sendLogoff() {
+function sendLogoff(form) {
     form.preventDefault();
     $
         .ajax( {

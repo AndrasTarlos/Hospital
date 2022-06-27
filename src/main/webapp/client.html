@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="author" content="Andras Tarlos"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Client"/>
+    <meta name="description" content="Lists all clients"/>
+    <title>Kundenliste</title>
+    <script src="./js/client.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
+<h3>Kundenliste</h3>
+<div id="nav">
+    <span id="message" style="color: red;"></span>
+</div>
+<form id="clientForm">
+    <table id="clients">
+        <thead>
+        <tr>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Sex</th>
+            <th>Zustand</th>
+            <th>Telefonnummer</th>
+            <th>Rechnung</th>
+            <th>AHV-Nummer</th>
+        </tr>
+        </thead>
+        <tbody id="clientlist">
 
+        </tbody>
+    </table>
+    <p>
+        <a href="./clientedit.html">Neue Ausrüstung</a>
+    </p>
+</form>
 </body>
 </html>

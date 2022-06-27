@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="author" content="Andras Tarlos"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Hospital"/>
+    <meta name="description" content="Lists all hospitals"/>
+    <title>Spitalliste</title>
+    <script src="./js/hospital.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
+<h3>Spitalliste</h3>
+<div id="nav">
+    <span id="message" style="color: red;"></span>
+</div>
+<form id="hospitalForm">
+    <table id="hospitals">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Adresse</th>
+            <th>Besitzer</th>
+            <th>Anzahl von Angestellten</th>
+        </tr>
+        </thead>
+        <tbody id="hospitallist">
 
+        </tbody>
+    </table>
+    <p>
+        <a href="./hospitaledit.html">Neue Ausrüstung</a>
+    </p>
+</form>
 </body>
 </html>
