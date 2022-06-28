@@ -140,7 +140,7 @@ public class ClientService {
     /**
      * updates a new client
      * @param client
-     * @return
+     * @return Response
      */
     @PUT
     @Path("update")

@@ -122,7 +122,7 @@ public class HospitalService {
     ) {
 
         int httpStatus = 200;
-        if (userRole.equals("admin")) {
+        if (userRole != null && userRole.equals("admin")) {
             Hospital oldHospital = DataHandler.getInstance().readHospitalByName(hospital.getName()).get(0);
 
             if (oldHospital != null) {

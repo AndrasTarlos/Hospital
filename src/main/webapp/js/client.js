@@ -72,7 +72,7 @@ function editClient(event) {
     const button = event.target;
     const firstname = button.getAttribute("data-firstname");
     const name = button.getAttribute("data-name");
-    window.location.href = "./clientedit.html?firstname=" + firstname + "?name=" + name;
+    window.location.href = "./clientedit.html?firstname=" + firstname + "&name=" + name;
 }
 
 /**
@@ -84,7 +84,7 @@ function deleteClient(event) {
     const name = button.getAttribute("data-name");
     const firstname = button.getAttribute("data-firstname");
 
-    fetch("./resource/client/delete?firstname=" + firstname + "?name=" + name,
+    fetch("./resource/client/delete?firstname=" + firstname + "&name=" + name,
         {
             method: "DELETE"
         })

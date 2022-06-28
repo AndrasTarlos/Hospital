@@ -1,14 +1,14 @@
 /**
- * view-controller of equipmentedit.html
+ * view-controller of hospitaledit.html
  * @author Andras Tarlos
  **/
 
 document.addEventListener("DOMContentLoaded", () => {
-    readEquipment();
+        readHospital();
     }
 )
 
-function readEquipment() {
+function readHospital() {
     const name = getQueryParam("name")
     fetch("./resource/equipment/read?name=" + name)
         .then(function (response) {
@@ -18,14 +18,13 @@ function readEquipment() {
                 console.log(response);
             }
         })
-    .then(response => response.json())
-    .then(data => {
-        showEquipment(data);
-    })
-    .catch(function (error) {
-        console.log(error)
-    });
-    console.log(name)
+        .then(response => response.json())
+        .then(data => {
+            showEquipment(data);
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
 }
 
 /**
@@ -35,7 +34,7 @@ function readEquipment() {
 
 function showEquipment(data) {
     document.getElementById("name").value = data.name;
-    document.getElementById("description").value = data.description;
-    document.getElementById("amount").value = data.amount;
-    document.getElementById("storageRoom").value = data.storageRoom;
+    document.getElementById("address").value = data.address;
+    document.getElementById("owner").value = data.owner;
+    document.getElementById("numberOfEmployees").value = data.numberOfEmployees;
 }

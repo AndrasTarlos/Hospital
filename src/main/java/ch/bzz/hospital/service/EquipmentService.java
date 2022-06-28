@@ -123,7 +123,7 @@ public class EquipmentService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 0;
-        if (userRole.equals("admin")) {
+        if (userRole != null && userRole.equals("admin")) {
             httpStatus = 200;
             if (!DataHandler.getInstance().deleteEquipment(name)) {
                 httpStatus = 410;
@@ -151,7 +151,7 @@ public class EquipmentService {
     ) {
 
         int httpStatus = 0;
-        if (userRole.equals("admin")) {
+        if (userRole != null && userRole.equals("admin")) {
             httpStatus = 200;
             Equipment oldEquipment = DataHandler.getInstance().readEquipmentByName(equipment.getName()).get(0);
 
@@ -198,7 +198,7 @@ public class EquipmentService {
 
     ) {
         int httpStatus = 0;
-        if (userRole.equals("admin")) {
+        if (userRole != null && userRole.equals("admin")) {
             httpStatus = 200;
             DataHandler.getInstance().insertEquipment(equipment);
         } else {

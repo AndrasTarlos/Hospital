@@ -44,7 +44,6 @@ function sendLogin(form) {
  * sends the logout-request
  */
 function sendLogout(form) {
-    console.log("Logout..")
     form.preventDefault();
     $
         .ajax( {
@@ -53,7 +52,7 @@ function sendLogout(form) {
             type: "DELETE"
         })
         .done(function () {
-            window.location.href = "../index.html"
+            window.location.href = "./index.html"
         })
         .fail(function (xhr, status, errorThrown) {
 

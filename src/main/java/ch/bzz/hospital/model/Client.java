@@ -54,7 +54,7 @@ public class Client implements Comparable<Client> {
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
     private LocalDate checkin;
-    @FormParam("avhNumber")
+    @FormParam("ahvNumber")
     @NotEmpty
     @Pattern(regexp = "756.[0-9]{4}.[0-9]{4}.[0-9]{2}")
     private String ahvNumber;
