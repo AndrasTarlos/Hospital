@@ -1,6 +1,5 @@
 package ch.bzz.hospital.data;
 
-import ch.bzz.hospital.model.Equipment;
 import ch.bzz.hospital.model.User;
 import ch.bzz.hospital.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,13 +11,22 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <h1>UserData</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.06.28
+ * @version 0.1
+ *
+ * DataHandler for Users
+ */
 public class UserData {
     private static final UserData instance = new UserData();
 
     /**
      * finds a user by username / password
-     * @param username
-     * @param password
+     * @param username String
+     * @param password String
      * @return User object / null = not found
      */
     public static User findUser(String username, String password) {

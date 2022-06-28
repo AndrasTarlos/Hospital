@@ -35,36 +35,6 @@ public class Equipment implements Comparable<Equipment>{
     private String storageRoom;
 
     /**
-     * Under construction
-     */
-    public void createEquipment() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void readEquipment() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void listEquipment() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void updateEquipment() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void deleteEquipment() {
-
-    }
-    /**
      * gets name
      *
      * @return value of name

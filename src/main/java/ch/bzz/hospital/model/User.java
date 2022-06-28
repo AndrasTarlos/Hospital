@@ -33,7 +33,7 @@ public class User {
 
     /**
      * Sets the userUUID
-     * @param uuid
+     * @param uuid String
      */
     public void setUuid(String uuid) {
         this.uuid = uuid;

@@ -13,7 +13,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * test service
+ * <h1>TestService</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
+ * Test services with a restore service
  */
 @Path("test")
 public class TestService {

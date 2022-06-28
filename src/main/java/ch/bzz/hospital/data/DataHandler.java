@@ -57,7 +57,7 @@ public class DataHandler {
 
     /**
      * gets the only instance of this class
-     * @return
+     * @return Datahandler
      */
     public static DataHandler getInstance() {
         if (instance == null)
@@ -94,7 +94,7 @@ public class DataHandler {
 
     /**
      * reads a Hospital by its name
-     * @param hospitalName
+     * @param hospitalName String
      * @return the Hospital (null=not found)
      */
     public static List<Hospital> readHospitalByName(String hospitalName) {

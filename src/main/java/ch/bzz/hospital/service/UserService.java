@@ -9,8 +9,23 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
+/**
+ * <h1>UserService</h1>
+ *
+ * @author Andras Tarlos
+ * @since 2022.05.24
+ * @version 0.1
+ *
+ * All services for the User
+ */
 @Path("user")
 public class UserService {
+    /**
+     * Logs the user in and returns the adequate Cookie
+     * @param username String
+     * @param password String
+     * @return Response
+     */
     @POST
     @Path("login")
     @Produces(MediaType.TEXT_PLAIN)

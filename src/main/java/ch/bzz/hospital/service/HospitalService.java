@@ -1,7 +1,6 @@
 package ch.bzz.hospital.service;
 
 import ch.bzz.hospital.data.DataHandler;
-import ch.bzz.hospital.model.Client;
 import ch.bzz.hospital.model.Hospital;
 
 import javax.validation.Valid;
@@ -110,7 +109,7 @@ public class HospitalService {
 
     /**
      * updates a new hospital
-     * @param hospital
+     * @param hospital Hospital
      * @return Response
      */
     @PUT
@@ -151,7 +150,7 @@ public class HospitalService {
 
     /**
      * insert a new hospital
-     * @return
+     * @return Response
      */
 
     @POST

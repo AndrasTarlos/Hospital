@@ -59,39 +59,9 @@ public class Client implements Comparable<Client> {
     @Pattern(regexp = "756.[0-9]{4}.[0-9]{4}.[0-9]{2}")
     private String ahvNumber;
 
-
     /**
-     * Under construction
-     */
-    public void createClient() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void readClient() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void listClient() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void updateClient() {
-
-    }
-    /**
-     * Under construction
-     */
-    public void deleteClient() {
-
-    }
-    /**
-     * Under construction
+     * gets firstname
+     * @return firstname String
      */
     public String getFirstname() {
         return firstname;
@@ -219,7 +189,7 @@ public class Client implements Comparable<Client> {
 
     /**
      * Compares two clients for sorting
-     * @param client
+     * @param client Client
      * @return sorting values represented as ints (-1, 0, 1)
      */
     @Override

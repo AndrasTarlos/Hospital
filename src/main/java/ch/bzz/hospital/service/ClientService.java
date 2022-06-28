@@ -139,7 +139,7 @@ public class ClientService {
 
     /**
      * updates a new client
-     * @param client
+     * @param client Client
      * @return Response
      */
     @PUT
@@ -194,7 +194,7 @@ public class ClientService {
 
     /**
      * insert a new client
-     * @return
+     * @return Response
      */
 
     @POST
