@@ -7,7 +7,9 @@
     <meta name="project" content="Hospital"/>
     <meta name="description" content="Lists all hospitals"/>
     <title>Spitalliste</title>
+    <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/hospital.js"></script>
+    <script src="js/login.js"></script>
     <style>
         table,
         th,
@@ -20,9 +22,13 @@
 </head>
 <body>
 <h3>Spitalliste</h3>
-<div id="nav">
+<nav id="nav">
+    <span><a href="./client.html">Kliente</a></span>
+    <span><a href="./equipment.html">Ausrüstungen</a></span>
+    <span><a href="./hospital.html">Spitale</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
     <span id="message" style="color: red;"></span>
-</div>
+</nav>
 <form id="hospitalForm">
     <table id="hospitals">
         <thead>
@@ -38,7 +44,7 @@
         </tbody>
     </table>
     <p>
-        <a href="./hospitaledit.html">Neue Ausrüstung</a>
+        <a href="./hospitaledit.html">Neues Spital</a>
     </p>
 </form>
 </body>

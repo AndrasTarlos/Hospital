@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <meta name="author" content="Andras Tarlos"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Hospital"/>
+    <meta name="description" content="hospital with clients and equipment"/>
+    <title>Anmeldung</title>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="js/login.js"></script>
 </head>
 <body>
-    <h1>Main page</h1>
+<h3>Anmeldung</h3>
+<span id="message" style="color: red;"></span>
+<form id="loginForm">
+    <table>
+        <tr>
+            <td><label for="username">Benutzername</label></td>
+            <td><input id="username" name="username" type="text"/>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td><input id="password" name="password" type="password"/>
+        </tr>
+        <tr>
+            <td>
+                <button id="login" type="submit">Anmelden</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

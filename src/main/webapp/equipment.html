@@ -7,7 +7,9 @@
     <meta name="project" content="Equipment"/>
     <meta name="description" content="Lists all equipments"/>
     <title>Ausrüstungsliste</title>
+    <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/equipment.js"></script>
+    <script src="js/login.js"></script>
     <style>
         table,
         th,
@@ -20,9 +22,13 @@
 </head>
 <body>
 <h3>Ausrüstungsliste</h3>
-<div id="nav">
+<nav id="nav">
+    <span><a href="./client.html">Kliente</a></span>
+    <span><a href="./equipment.html">Ausrüstungen</a></span>
+    <span><a href="./hospital.html">Spitale</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
     <span id="message" style="color: red;"></span>
-</div>
+</nav>
 <form id="equipmentForm">
     <table id="equipments">
         <thead>

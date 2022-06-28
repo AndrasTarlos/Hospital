@@ -7,7 +7,9 @@
     <meta name="project" content="Client"/>
     <meta name="description" content="Lists all clients"/>
     <title>Kundenliste</title>
+    <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/client.js"></script>
+    <script src="js/login.js"></script>
     <style>
         table,
         th,
@@ -20,9 +22,13 @@
 </head>
 <body>
 <h3>Kundenliste</h3>
-<div id="nav">
+<nav id="nav">
+    <span><a href="./client.html">Kliente</a></span>
+    <span><a href="./equipment.html">Ausrüstungen</a></span>
+    <span><a href="./hospital.html">Spitale</a></span>
+    <span id="logout"><a href="./index.html">Abmelden</a></a></span>
     <span id="message" style="color: red;"></span>
-</div>
+</nav>
 <form id="clientForm">
     <table id="clients">
         <thead>
@@ -41,7 +47,7 @@
         </tbody>
     </table>
     <p>
-        <a href="./clientedit.html">Neue Ausrüstung</a>
+        <a href="./clientedit.html">Neue Kunde</a>
     </p>
 </form>
 </body>

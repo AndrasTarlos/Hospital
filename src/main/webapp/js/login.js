@@ -1,5 +1,5 @@
 /**
- * view-controller for login.html
+ * view-controller for index.html
  *
  * @author Andras Tarlos
  */
@@ -9,20 +9,20 @@
  */
 $(document).ready(function () {
     /**
-     * listener for submitting the ofrm sends the login data to the web service
+     * listener for submitting the from sends the login data to the web service
      */
     $("#loginForm").submit(sendLogin);
     /**
      * listener for button [Abmelden]
      */
-    $("#logoff").click(sendLogoff)
+    $("#logout").click(sendLogOut)
 });
 
 function sendLogin(form) {
     form.preventDefault();
     $
         .ajax( {
-            urL: "./resource/user/login",
+            url: "./resource/user/login",
             dataType: "text",
             type: "POST",
             data: $("#loginForm").serialize()
@@ -41,18 +41,18 @@ function sendLogin(form) {
 }
 
 /**
- * sends the logoff-request
+ * sends the logout-request
  */
-function sendLogoff(form) {
+function sendLogOut(form) {
     form.preventDefault();
     $
         .ajax( {
-            urL: "./resource/user/logout",
+            url: "./resource/user/logout",
             dataType: "text",
             type: "DELETE"
         })
         .done(function () {
-            window.location.href = "./login.html"
+            window.location.href = "../index.html"
         })
         .fail(function (xhr, status, errorThrown) {
 

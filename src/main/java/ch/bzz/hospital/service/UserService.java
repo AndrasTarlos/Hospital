@@ -3,6 +3,7 @@ package ch.bzz.hospital.service;
 import ch.bzz.hospital.data.UserData;
 import ch.bzz.hospital.model.User;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
@@ -14,7 +15,9 @@ public class UserService {
     @Path("login")
     @Produces(MediaType.TEXT_PLAIN)
     public Response login(
+            @NotNull
             @FormParam("username") String username,
+            @NotNull
             @FormParam("password") String password
             )
     {

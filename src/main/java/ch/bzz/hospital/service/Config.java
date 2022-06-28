@@ -34,12 +34,12 @@ public class Config extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> providers = new HashSet();
+        providers.add(UserService.class);
         providers.add(ClientService.class);
         providers.add(EquipmentService.class);
         providers.add(HospitalService.class);
         providers.add(TestService.class);
         providers.add(MyExceptionMapper.class);
-        providers.add(UserService.class);
         return providers;
     }
 
