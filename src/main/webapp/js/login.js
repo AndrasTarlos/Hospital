@@ -15,7 +15,7 @@ $(document).ready(function () {
     /**
      * listener for button [Abmelden]
      */
-    $("#logout").click(sendLogOut)
+    $("#logout").click(sendLogout)
 });
 
 function sendLogin(form) {
@@ -43,7 +43,8 @@ function sendLogin(form) {
 /**
  * sends the logout-request
  */
-function sendLogOut(form) {
+function sendLogout(form) {
+    console.log("Logout..")
     form.preventDefault();
     $
         .ajax( {
@@ -57,5 +58,4 @@ function sendLogOut(form) {
         .fail(function (xhr, status, errorThrown) {
 
         })
-
 }
