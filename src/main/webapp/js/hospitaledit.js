@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function readHospital() {
     const name = getQueryParam("name")
-    fetch("./resource/equipment/read?name=" + name)
+    fetch("./resource/hospital/read?name=" + name)
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -33,8 +33,8 @@ function readHospital() {
  */
 
 function showEquipment(data) {
-    document.getElementById("name").value = data.name;
-    document.getElementById("address").value = data.address;
-    document.getElementById("owner").value = data.owner;
-    document.getElementById("numberOfEmployees").value = data.numberOfEmployees;
+    document.getElementById("name").value = data[0].name;
+    document.getElementById("address").value = data[0].address;
+    document.getElementById("owner").value = data[0].owner;
+    document.getElementById("numberOfEmployees").value = data[0].numberOfEmployees;
 }
