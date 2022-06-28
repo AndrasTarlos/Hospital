@@ -1,0 +1,4758 @@
+{
+	"info": {
+		"_postman_id": "5cc94d6e-2602-4d1f-b380-315fce8a9c88",
+		"name": "Hospital guest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "1.0 login failed (acquire guest rights)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.1 list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.0 read forename + name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover&firstname=Ben",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dover"
+								},
+								{
+									"key": "firstname",
+									"value": "Ben"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.1 read only name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dover"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.2 read only forename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?firstname=Ben",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Ben"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.3 read false forename + name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald&firstname=Josh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gerald"
+								},
+								{
+									"key": "firstname",
+									"value": "Josh"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.4 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gerald"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.5 read false forename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read?firstname=Gerald",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Gerald"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2.6 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3 delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/delete?forename=Ben&name=Dover",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "Ben"
+								},
+								{
+									"key": "name",
+									"value": "Dover"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3.1 delete only firstname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/delete?firstname=Hugh",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Hugh"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3.2 delete only name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/delete?name=Benson",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Benson"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3.3 delete nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4 create new client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.1 create new client empty firstname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.2 create new client empty name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.3 create new client empty sex",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.4 create new client empty condition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.5 create new client empty phoneNumber",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.6 create new client empty bill",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.7 create new client empty ahvNumber",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "z",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.8 create new client name too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andrasnametoolongforthiskindofprogram",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.9 create new client name too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlosthisnameistoolongaswellitwontwork",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.10 create new client sex too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Malehellothere",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.11 create new client condition too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well too longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo longtoo long",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.12 create new client condition too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Short",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.13 create new client phoneNumber invalid (no +)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Wake up call hi there",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.13.1 create new client invalid phoneNumber (not a swiss phone number)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+21798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.13.2 create new client invalid phoneNumber (no valid cantonal number)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41198542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.14 create new client bill negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "-12",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.15 create new client string bill",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "string",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.16 create new client ahvNumber too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.822",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.17 create new client ahvNumber too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.4.18 create new client ahvNumber invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "This is long enough",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "716.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.5 update client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Andras",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Tarlos",
+									"type": "default"
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"type": "default"
+								},
+								{
+									"key": "condition",
+									"value": "Worked very well",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+41798542615",
+									"type": "default"
+								},
+								{
+									"key": "bill",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "avhNumber",
+									"value": "756.1264.5278.82",
+									"type": "default"
+								},
+								{
+									"key": "checkin",
+									"value": "2022.09.05",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/client/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"update"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment",
+			"item": [
+				{
+					"name": "1.1 list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.0 read name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});     "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Defibrillator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Defibrillator"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.1 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Baseballcap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Baseballcap"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.2 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 sortByAmount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/equipment/sortByAmount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"sortByAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4 delete equipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/delete?name=Defibrillator",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Defibrillator"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4.1 delete nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5 insert new equipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E43",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5.1 insert new equipment custom annotation UniqueName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E43",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6 insert new equipment empty name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E43",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.7 insert new equipment empty description",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E43",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.8 insert new equipment empty storage room",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.9 insert new equipment name too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "SyringeButThisIsSadlyANameTooLongHelloThereButThisIsTooLong[{\"key\":\"name\",\"value\":\"SyringeButThisIsSadlyANameTooLongHelloThereButThisIsTooLong\",\"description\":\"\",\"type\":\"default\",\"enabled\":true}]",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E45",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.10 insert new equipment description too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism[{\"key\":\"description\",\"value\":\"Against autism\",\"description\":\"\",\"type\":\"default\",\"enabled\":true}][{\"key\":\"description\",\"value\":\"Against autism\",\"description\":\"\",\"type\":\"default\",\"enabled\":true}]",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E45",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.11 insert new equipment amount below 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "amount",
+									"value": "-12",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E45",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.12 insert new equipment amount over 2000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "amount",
+									"value": "2001",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E45",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.13 insert new equipment storage room over 5 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "amount",
+									"value": "2001",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E45142",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"create"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6 update equipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Syringe",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Against autism",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "default"
+								},
+								{
+									"key": "storageRoom",
+									"value": "E43",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "2000",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"update"
+							],
+							"query": [
+								{
+									"key": "forename",
+									"value": "An",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hospital",
+			"item": [
+				{
+					"name": "2.1 list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.0 read name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital Uster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Spital Uster"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.1 read false name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital Erlenbach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Spital Erlenbach"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2.2 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 create new hospital",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 4",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "146",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.1 create new hospital empy name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 4",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "146",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.2 create new hospital empy address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "146",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.3 create new hospital empy owner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 32",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "146",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.5 create new hospital name less than 4 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Ka",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 32",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.6 create new hospital name more than 80 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 32",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.7 create new hospital address less than 8 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Min",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.8 create new hospital address more than 80 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.9 create new hospital owner less than 2 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 35",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "A",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.10 create new hospital owner more than 80 chars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 35",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.11 create new hospital numberOfEmployees lower than 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 35",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "-1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3.12 create new hospital numberOfEmployees more than 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Minervastrasse 35",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Amstutz",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "201",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.4 update hospital",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kantonschule Hottingen",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Bro Strasse",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Kevin Stupar",
+									"type": "default"
+								},
+								{
+									"key": "numberOfEmployees",
+									"value": "146",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/hospital/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"hospital",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.5 delete hospital",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/delete?name=Defibrillator",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Defibrillator"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.5.1 delete nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Hospital-1.0/resource/equipment/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"equipment",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 test restore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/test/restore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"test",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

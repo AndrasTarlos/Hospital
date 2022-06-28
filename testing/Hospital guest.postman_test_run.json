@@ -1,0 +1,2281 @@
+{
+	"id": "deb22db4-2ca4-42b8-8e7c-856c4f58229f",
+	"name": "Hospital guest",
+	"timestamp": "2022-06-28T13:34:56.846Z",
+	"collection_id": "0-5cc94d6e-2602-4d1f-b380-315fce8a9c88",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 73,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8c1775c2-2285-4496-af79-97f8b450b900",
+			"name": "1.0 login failed (acquire guest rights)",
+			"url": "http://localhost:8080/Hospital-1.0/resource/user/login",
+			"time": 15,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "3f18a2a8-811e-464d-9a03-c9ebd1aacc48",
+			"name": "0.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/list",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "ca2d7dfb-9654-4149-975c-f42269ae9f23",
+			"name": "0.2.0 read forename + name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover&firstname=Ben",
+			"time": 8,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "152d4b02-b714-4da5-adec-586de10f8f57",
+			"name": "0.2.1 read only name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Dover",
+			"time": 10,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "010a36c8-406b-4577-bbe3-0d7f5eb06b27",
+			"name": "0.2.2 read only forename",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?firstname=Ben",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "22d77943-9324-4c00-8f7b-63c0d93e7ea2",
+			"name": "0.2.3 read false forename + name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald&firstname=Josh",
+			"time": 14,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "849c55bf-b4c3-4c80-a031-71d90b4bf4b7",
+			"name": "0.2.4 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?name=Gerald",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "159cb295-1e40-40d6-8d89-97b4b9463b09",
+			"name": "0.2.5 read false forename",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read?firstname=Gerald",
+			"time": 8,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "48a48949-fde8-4d73-8c26-cdff84613cc4",
+			"name": "0.2.6 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/read",
+			"time": 15,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "746d71dd-0169-428d-997f-6aa4272af903",
+			"name": "0.3 delete",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/delete?forename=Ben&name=Dover",
+			"time": 12,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "784f059e-fed7-4f51-9863-947e0f7c327b",
+			"name": "0.3.1 delete only firstname",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/delete?firstname=Hugh",
+			"time": 23,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "d035c150-be10-4631-b6f6-95ca2c834b4e",
+			"name": "0.3.2 delete only name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/delete?name=Benson",
+			"time": 9,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "c6894366-e675-4cca-be10-1ccadb1b4986",
+			"name": "0.3.3 delete nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/delete",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "0e2e6989-aa60-470a-8098-bdbfbe391d4c",
+			"name": "0.4 create new client",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "02a01520-6670-4a45-9ce8-ed1b325dd0bb",
+			"name": "0.4.1 create new client empty firstname",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "631eadab-3374-46df-993c-81bbdc55dc9f",
+			"name": "0.4.2 create new client empty name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "a60b8725-dac3-40d2-bc95-a4a3022ab8fd",
+			"name": "0.4.3 create new client empty sex",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "b789b91d-3730-4c80-a3d9-89ea4af69fb8",
+			"name": "0.4.4 create new client empty condition",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "95238b67-4e47-47f1-9e5a-caa3400ff6f4",
+			"name": "0.4.5 create new client empty phoneNumber",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "1f2be844-3011-4e3d-9190-92dc4f390e69",
+			"name": "0.4.6 create new client empty bill",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "86d4f0d7-e40c-407d-a348-034e09a2d396",
+			"name": "0.4.7 create new client empty ahvNumber",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "cd26c2d8-e1e1-4b38-8634-9ba9accd310d",
+			"name": "0.4.8 create new client name too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "a43e898d-4416-4045-afb1-1a525fe34007",
+			"name": "0.4.9 create new client name too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "ee33c168-eec9-4f94-acf0-01a830f8d17c",
+			"name": "0.4.10 create new client sex too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "f6bc756a-e652-4b2e-9a8c-9cf59fd7d1b8",
+			"name": "0.4.11 create new client condition too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "ae0d69d0-4df7-42f9-92a1-22d04e06d2ec",
+			"name": "0.4.12 create new client condition too short",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "e222b2e8-ba66-422d-ab2a-ddaef44d68ef",
+			"name": "0.4.13 create new client phoneNumber invalid (no +)",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "d98f58eb-8748-44c8-a29a-0fc1b4b9ca38",
+			"name": "0.4.13.1 create new client invalid phoneNumber (not a swiss phone number)",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "e4efe55b-e577-4a08-8276-1e2a786d3206",
+			"name": "0.4.13.2 create new client invalid phoneNumber (no valid cantonal number)",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "87e930bd-51c0-41b8-a1a0-1cd220844f90",
+			"name": "0.4.14 create new client bill negative",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "a11dac99-9d8e-4d3a-83b2-f12e9140471d",
+			"name": "0.4.15 create new client string bill",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "9705410f-bf58-4cce-970b-20ee01c75644",
+			"name": "0.4.16 create new client ahvNumber too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "57ef6033-0515-40ed-b914-45f0a9ef024b",
+			"name": "0.4.17 create new client ahvNumber too short",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "dbc29629-cc8b-43f9-b053-275113d6e433",
+			"name": "0.4.18 create new client ahvNumber invalid",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "6847fc17-7ab3-49fa-885d-f1204960ca91",
+			"name": "0.5 update client",
+			"url": "http://localhost:8080/Hospital-1.0/resource/client/update",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "059daeea-7f5a-43a3-adc5-60d5c5baa5d6",
+			"name": "1.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/list",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "3387c70e-c7b9-496a-b718-d46244a98f9a",
+			"name": "1.2.0 read name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Defibrillator",
+			"time": 16,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "db2587ea-7c96-4a02-971f-afe90b8db5b4",
+			"name": "1.2.1 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read?name=Baseballcap",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "c36dbc58-0681-4962-b30a-a560490f68c0",
+			"name": "1.2.2 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/read",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "f10dd25f-d613-4602-a495-d56bc4551ede",
+			"name": "1.3 sortByAmount",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/sortByAmount",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "2a0af20a-285e-4a73-9630-6f88769ac10b",
+			"name": "1.4 delete equipment",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/delete?name=Defibrillator",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "129471bd-c551-4ff7-b6cd-dd1f5e61d2ad",
+			"name": "1.4.1 delete nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/delete",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "96f81a68-7db0-44a0-bfcc-7108313f77ad",
+			"name": "1.5 insert new equipment",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "87338733-48c2-465c-89f9-1572589f5b35",
+			"name": "1.5.1 insert new equipment custom annotation UniqueName",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "00aa3d36-a596-4ef6-b7b4-cba849bdd96f",
+			"name": "1.6 insert new equipment empty name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "2a057d9e-8baf-4ba2-a465-3209d52fe831",
+			"name": "1.7 insert new equipment empty description",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "02927b97-e32f-485e-8bc2-71d0805d2bf8",
+			"name": "1.8 insert new equipment empty storage room",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "9002127b-3890-4f04-a53f-ab330da831c2",
+			"name": "1.9 insert new equipment name too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "a737282c-3ed3-4d07-9f59-a5c3c218b823",
+			"name": "1.10 insert new equipment description too long",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "bf32134b-c2a1-4daa-9c89-38f0ad6cbbc8",
+			"name": "1.11 insert new equipment amount below 0",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "cca76d05-8dc2-4b87-995e-01cd93d8c6e9",
+			"name": "1.12 insert new equipment amount over 2000",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "ee8c7b76-4b79-4f5c-8276-0f6bcd1d4857",
+			"name": "1.13 insert new equipment storage room over 5 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "8cb435ce-25fc-4716-a25f-a80de87a349e",
+			"name": "1.6 update equipment",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/update",
+			"time": 10,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "b177860b-8044-4d64-a366-c73150f268bf",
+			"name": "2.1 list",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/list",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "9214e4bf-aef4-4f03-84e9-5fea5ba09ca8",
+			"name": "2.2.0 read name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital%20Uster",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "d5adbb46-451c-4530-89b5-5caba6480f45",
+			"name": "2.2.1 read false name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read?name=Spital%20Erlenbach",
+			"time": 9,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "bb2499de-7339-4064-ad50-080aae1d5cf6",
+			"name": "2.2.2 read nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/read",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "74e33382-6576-47f5-96ce-8dd8f21ce69c",
+			"name": "2.3 create new hospital",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "768e4527-d6d6-4518-b41a-34f10a8e1f15",
+			"name": "2.3.1 create new hospital empy name",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "8da94a45-6c05-482b-8410-a6067ebc2221",
+			"name": "2.3.2 create new hospital empy address",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "ea288f14-b03d-4326-a6e2-8e717d1c4fd5",
+			"name": "2.3.3 create new hospital empy owner",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "c3af9d89-9723-4c7b-a7a8-a4f4e624e938",
+			"name": "2.3.5 create new hospital name less than 4 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "d4b3eb75-89c2-4dad-b0ba-d4b8a40cf25d",
+			"name": "2.3.6 create new hospital name more than 80 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "626435e7-f727-401c-b8f2-8994f05b554e",
+			"name": "2.3.7 create new hospital address less than 8 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "9191a4ac-7401-425c-b0ce-79e52774f2ff",
+			"name": "2.3.8 create new hospital address more than 80 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "1fdc4ff5-9be4-49ef-b170-0da67d9746ad",
+			"name": "2.3.9 create new hospital owner less than 2 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "2e78aae8-6862-4cf5-a2c4-5efff909ad93",
+			"name": "2.3.10 create new hospital owner more than 80 chars",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "c26070c9-4a88-4348-a08b-4c4e437b91f2",
+			"name": "2.3.11 create new hospital numberOfEmployees lower than 0",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "68026a69-46bf-4bf0-a24d-67156005a6ad",
+			"name": "2.3.12 create new hospital numberOfEmployees more than 200",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "40f9a74f-86da-4aec-bd39-a91936f8fead",
+			"name": "2.4 update hospital",
+			"url": "http://localhost:8080/Hospital-1.0/resource/hospital/update",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "bdd26ddb-9111-4299-8da6-4aff5e76e09c",
+			"name": "2.5 delete hospital",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/delete?name=Defibrillator",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "db0b3e86-7687-49e0-8dbc-f8b3d07c80b2",
+			"name": "2.5.1 delete nothing",
+			"url": "http://localhost:8080/Hospital-1.0/resource/equipment/delete",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		},
+		{
+			"id": "7e57aa92-ac36-4e3a-a05c-0e72ce16df9c",
+			"name": "3.0 test restore",
+			"url": "http://localhost:8080/Hospital-1.0/resource/test/restore",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test 0.1 is successful": true
+			},
+			"testPassFailCounts": {
+				"Test 0.1 is successful": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Test 0.1 is successful": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 649,
+	"collection": {
+		"requests": [
+			{
+				"id": "8c1775c2-2285-4496-af79-97f8b450b900",
+				"method": "POST"
+			},
+			{
+				"id": "3f18a2a8-811e-464d-9a03-c9ebd1aacc48",
+				"method": "GET"
+			},
+			{
+				"id": "ca2d7dfb-9654-4149-975c-f42269ae9f23",
+				"method": "GET"
+			},
+			{
+				"id": "152d4b02-b714-4da5-adec-586de10f8f57",
+				"method": "GET"
+			},
+			{
+				"id": "010a36c8-406b-4577-bbe3-0d7f5eb06b27",
+				"method": "GET"
+			},
+			{
+				"id": "22d77943-9324-4c00-8f7b-63c0d93e7ea2",
+				"method": "GET"
+			},
+			{
+				"id": "849c55bf-b4c3-4c80-a031-71d90b4bf4b7",
+				"method": "GET"
+			},
+			{
+				"id": "159cb295-1e40-40d6-8d89-97b4b9463b09",
+				"method": "GET"
+			},
+			{
+				"id": "48a48949-fde8-4d73-8c26-cdff84613cc4",
+				"method": "GET"
+			},
+			{
+				"id": "746d71dd-0169-428d-997f-6aa4272af903",
+				"method": "DELETE"
+			},
+			{
+				"id": "784f059e-fed7-4f51-9863-947e0f7c327b",
+				"method": "DELETE"
+			},
+			{
+				"id": "d035c150-be10-4631-b6f6-95ca2c834b4e",
+				"method": "DELETE"
+			},
+			{
+				"id": "c6894366-e675-4cca-be10-1ccadb1b4986",
+				"method": "DELETE"
+			},
+			{
+				"id": "0e2e6989-aa60-470a-8098-bdbfbe391d4c",
+				"method": "POST"
+			},
+			{
+				"id": "02a01520-6670-4a45-9ce8-ed1b325dd0bb",
+				"method": "POST"
+			},
+			{
+				"id": "631eadab-3374-46df-993c-81bbdc55dc9f",
+				"method": "POST"
+			},
+			{
+				"id": "a60b8725-dac3-40d2-bc95-a4a3022ab8fd",
+				"method": "POST"
+			},
+			{
+				"id": "b789b91d-3730-4c80-a3d9-89ea4af69fb8",
+				"method": "POST"
+			},
+			{
+				"id": "95238b67-4e47-47f1-9e5a-caa3400ff6f4",
+				"method": "POST"
+			},
+			{
+				"id": "1f2be844-3011-4e3d-9190-92dc4f390e69",
+				"method": "POST"
+			},
+			{
+				"id": "86d4f0d7-e40c-407d-a348-034e09a2d396",
+				"method": "POST"
+			},
+			{
+				"id": "cd26c2d8-e1e1-4b38-8634-9ba9accd310d",
+				"method": "POST"
+			},
+			{
+				"id": "a43e898d-4416-4045-afb1-1a525fe34007",
+				"method": "POST"
+			},
+			{
+				"id": "ee33c168-eec9-4f94-acf0-01a830f8d17c",
+				"method": "POST"
+			},
+			{
+				"id": "f6bc756a-e652-4b2e-9a8c-9cf59fd7d1b8",
+				"method": "POST"
+			},
+			{
+				"id": "ae0d69d0-4df7-42f9-92a1-22d04e06d2ec",
+				"method": "POST"
+			},
+			{
+				"id": "e222b2e8-ba66-422d-ab2a-ddaef44d68ef",
+				"method": "POST"
+			},
+			{
+				"id": "d98f58eb-8748-44c8-a29a-0fc1b4b9ca38",
+				"method": "POST"
+			},
+			{
+				"id": "e4efe55b-e577-4a08-8276-1e2a786d3206",
+				"method": "POST"
+			},
+			{
+				"id": "87e930bd-51c0-41b8-a1a0-1cd220844f90",
+				"method": "POST"
+			},
+			{
+				"id": "a11dac99-9d8e-4d3a-83b2-f12e9140471d",
+				"method": "POST"
+			},
+			{
+				"id": "9705410f-bf58-4cce-970b-20ee01c75644",
+				"method": "POST"
+			},
+			{
+				"id": "57ef6033-0515-40ed-b914-45f0a9ef024b",
+				"method": "POST"
+			},
+			{
+				"id": "dbc29629-cc8b-43f9-b053-275113d6e433",
+				"method": "POST"
+			},
+			{
+				"id": "6847fc17-7ab3-49fa-885d-f1204960ca91",
+				"method": "PUT"
+			},
+			{
+				"id": "059daeea-7f5a-43a3-adc5-60d5c5baa5d6",
+				"method": "GET"
+			},
+			{
+				"id": "3387c70e-c7b9-496a-b718-d46244a98f9a",
+				"method": "GET"
+			},
+			{
+				"id": "db2587ea-7c96-4a02-971f-afe90b8db5b4",
+				"method": "GET"
+			},
+			{
+				"id": "c36dbc58-0681-4962-b30a-a560490f68c0",
+				"method": "GET"
+			},
+			{
+				"id": "f10dd25f-d613-4602-a495-d56bc4551ede",
+				"method": "GET"
+			},
+			{
+				"id": "2a0af20a-285e-4a73-9630-6f88769ac10b",
+				"method": "DELETE"
+			},
+			{
+				"id": "129471bd-c551-4ff7-b6cd-dd1f5e61d2ad",
+				"method": "DELETE"
+			},
+			{
+				"id": "96f81a68-7db0-44a0-bfcc-7108313f77ad",
+				"method": "POST"
+			},
+			{
+				"id": "87338733-48c2-465c-89f9-1572589f5b35",
+				"method": "POST"
+			},
+			{
+				"id": "00aa3d36-a596-4ef6-b7b4-cba849bdd96f",
+				"method": "POST"
+			},
+			{
+				"id": "2a057d9e-8baf-4ba2-a465-3209d52fe831",
+				"method": "POST"
+			},
+			{
+				"id": "02927b97-e32f-485e-8bc2-71d0805d2bf8",
+				"method": "POST"
+			},
+			{
+				"id": "9002127b-3890-4f04-a53f-ab330da831c2",
+				"method": "POST"
+			},
+			{
+				"id": "a737282c-3ed3-4d07-9f59-a5c3c218b823",
+				"method": "POST"
+			},
+			{
+				"id": "bf32134b-c2a1-4daa-9c89-38f0ad6cbbc8",
+				"method": "POST"
+			},
+			{
+				"id": "cca76d05-8dc2-4b87-995e-01cd93d8c6e9",
+				"method": "POST"
+			},
+			{
+				"id": "ee8c7b76-4b79-4f5c-8276-0f6bcd1d4857",
+				"method": "POST"
+			},
+			{
+				"id": "8cb435ce-25fc-4716-a25f-a80de87a349e",
+				"method": "PUT"
+			},
+			{
+				"id": "b177860b-8044-4d64-a366-c73150f268bf",
+				"method": "GET"
+			},
+			{
+				"id": "9214e4bf-aef4-4f03-84e9-5fea5ba09ca8",
+				"method": "GET"
+			},
+			{
+				"id": "d5adbb46-451c-4530-89b5-5caba6480f45",
+				"method": "GET"
+			},
+			{
+				"id": "bb2499de-7339-4064-ad50-080aae1d5cf6",
+				"method": "GET"
+			},
+			{
+				"id": "74e33382-6576-47f5-96ce-8dd8f21ce69c",
+				"method": "POST"
+			},
+			{
+				"id": "768e4527-d6d6-4518-b41a-34f10a8e1f15",
+				"method": "POST"
+			},
+			{
+				"id": "8da94a45-6c05-482b-8410-a6067ebc2221",
+				"method": "POST"
+			},
+			{
+				"id": "ea288f14-b03d-4326-a6e2-8e717d1c4fd5",
+				"method": "POST"
+			},
+			{
+				"id": "c3af9d89-9723-4c7b-a7a8-a4f4e624e938",
+				"method": "POST"
+			},
+			{
+				"id": "d4b3eb75-89c2-4dad-b0ba-d4b8a40cf25d",
+				"method": "POST"
+			},
+			{
+				"id": "626435e7-f727-401c-b8f2-8994f05b554e",
+				"method": "POST"
+			},
+			{
+				"id": "9191a4ac-7401-425c-b0ce-79e52774f2ff",
+				"method": "POST"
+			},
+			{
+				"id": "1fdc4ff5-9be4-49ef-b170-0da67d9746ad",
+				"method": "POST"
+			},
+			{
+				"id": "2e78aae8-6862-4cf5-a2c4-5efff909ad93",
+				"method": "POST"
+			},
+			{
+				"id": "c26070c9-4a88-4348-a08b-4c4e437b91f2",
+				"method": "POST"
+			},
+			{
+				"id": "68026a69-46bf-4bf0-a24d-67156005a6ad",
+				"method": "POST"
+			},
+			{
+				"id": "40f9a74f-86da-4aec-bd39-a91936f8fead",
+				"method": "PUT"
+			},
+			{
+				"id": "bdd26ddb-9111-4299-8da6-4aff5e76e09c",
+				"method": "DELETE"
+			},
+			{
+				"id": "db0b3e86-7687-49e0-8dbc-f8b3d07c80b2",
+				"method": "DELETE"
+			},
+			{
+				"id": "7e57aa92-ac36-4e3a-a05c-0e72ce16df9c",
+				"method": "GET"
+			}
+		]
+	}
+}

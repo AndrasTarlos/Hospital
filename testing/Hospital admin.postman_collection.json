@@ -1,13 +1,63 @@
 {
 	"info": {
 		"_postman_id": "8e4fd12b-d26c-41ba-a636-a94098a2bd73",
-		"name": "Hospital",
+		"name": "Hospital admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Client",
 			"item": [
+				{
+					"name": "1.0 login admin (acquired admin rights)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Hugh",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "0.1 list",
 					"event": [
@@ -257,6 +307,41 @@
 					"response": []
 				},
 				{
+					"name": "0.2.6 read nothing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"client",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "0.2.5 read false forename",
 					"event": [
 						{
@@ -292,41 +377,6 @@
 									"key": "firstname",
 									"value": "Gerald"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "0.2.6 read nothing",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Test 0.1 is successful\", () => {",
-									"  pm.response.to.have.status(404);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/Hospital-1.0/resource/client/read",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"Hospital-1.0",
-								"resource",
-								"client",
-								"read"
 							]
 						}
 					},
@@ -2574,7 +2624,7 @@
 								"exec": [
 									"pm.test(\"Test 0.1 is successful\", () => {",
 									"  pm.response.to.have.status(200);",
-									"});"
+									"});     "
 								],
 								"type": "text/javascript"
 							}
@@ -4737,6 +4787,363 @@
 								"resource",
 								"test",
 								"restore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "1.0 login success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Hugh",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1 login success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ghwalin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "world",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 login failed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "bad",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "bad",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 login failed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Hughd",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admi",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4 login failed only username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Hughd",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5 login failed only password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admi",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6 logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test 0.1 is successful\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ghwali",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "world",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Hospital-1.0/resource/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Hospital-1.0",
+								"resource",
+								"user",
+								"logout"
 							]
 						}
 					},

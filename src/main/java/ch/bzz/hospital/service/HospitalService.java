@@ -62,14 +62,14 @@ public class HospitalService {
     ) {
         List<Hospital> hospital = DataHandler.getInstance().readHospitalByName(name);
         Response response;
-        if (hospital.size() != 0) {
-            response = Response
-                    .status(200)
-                    .entity(hospital)
-                    .build();
-        } else if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || !userRole.equals("user") && !userRole.equals("admin")) {
             response = Response
                     .status(403)
+                    .entity(hospital)
+                    .build();
+        } else if (hospital.size() != 0) {
+            response = Response
+                    .status(200)
                     .entity(hospital)
                     .build();
         } else {

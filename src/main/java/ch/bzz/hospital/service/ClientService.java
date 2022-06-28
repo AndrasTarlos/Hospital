@@ -128,6 +128,8 @@ public class ClientService {
             if (!DataHandler.getInstance().deleteClient(firstname, name)) {
                 httpStatus = 410;
             }
+        } else {
+            httpStatus = 403;
         }
         return Response
                 .status(httpStatus)
